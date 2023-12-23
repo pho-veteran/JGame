@@ -1,2 +1,4 @@
-package BUS;public class GameService {
+package BUS;
+
+public class GameService {
 }

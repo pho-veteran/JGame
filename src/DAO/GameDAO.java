@@ -1,2 +1,4 @@
-package DAO;public class GameDAO {
+package DAO;
+
+public class GameDAO {
 }

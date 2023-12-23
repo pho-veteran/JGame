@@ -1,4 +1,6 @@
 package GUI.AccountMenu;
 
-public class loginMenu {
+import javax.swing.*;
+
+public class loginMenu extends JFrame {
 }
