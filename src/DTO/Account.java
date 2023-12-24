@@ -1,16 +1,16 @@
 package DTO;
 
-public abstract class Account {
+public class Account {
     private int id;
     private String username;
     private String password;
-    private String accessRights;
+    private String accessRight;
 
-    public Account(int id, String username, String password, String accessRights) {
+    public Account(int id, String username, String password, String accessRight) {
         this.id = id;
         this.username = username;
         this.password = password;
-        this.accessRights = accessRights;
+        this.accessRight = accessRight;
     }
 
     public int getId() {
@@ -37,11 +37,11 @@ public abstract class Account {
         this.password = password;
     }
 
-    public String getAccessRights() {
-        return accessRights;
+    public String getAccessRight() {
+        return accessRight;
     }
 
-    public void setAccessRights(String accessRights) {
-        this.accessRights = accessRights;
+    public void setAccessRight(String accessRight) {
+        this.accessRight = accessRight;
     }
 }
