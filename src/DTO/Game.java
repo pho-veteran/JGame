@@ -1,16 +1,20 @@
 package DTO;
 
 public class Game {
+    private int gameId;
     private double price;
     private String name;
     private String description;
     private String genre;
-    public Game(double price, String name, String description, String genre) {
+
+    public Game(int gameID, double price, String name, String description, String genre) {
+        this.gameId = gameID;
         this.price = price;
         this.name = name;
         this.description = description;
         this.genre = genre;
     }
+
     public double getPrice() {
         return price;
     }
@@ -41,5 +45,13 @@ public class Game {
 
     public void setGenre(String genre) {
         this.genre = genre;
+    }
+
+    public int getGameId() {
+        return gameId;
+    }
+
+    public void setGameId(int gameId) {
+        this.gameId = gameId;
     }
 }
