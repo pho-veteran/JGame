@@ -33,9 +33,9 @@ public class registerMenu extends JFrame {
         signUpButton.addActionListener(new ActionListener() {
             @Override
             public void actionPerformed(ActionEvent e) {
-                if (passwordField.getText().equals(confirmPasswordField.getText()))
+                if (usernameField.getText()!= null && passwordField.getText().equals(confirmPasswordField.getText()))
                     new AccountService().register(usernameField.getText(), passwordField.getText(), confirmPasswordField.getText());
-                else JOptionPane.showMessageDialog(null, "Passwords are not the same!");
+                else JOptionPane.showMessageDialog(null, "Passwords are not the same!", "Error", JOptionPane.ERROR_MESSAGE);
             }
         });
     }

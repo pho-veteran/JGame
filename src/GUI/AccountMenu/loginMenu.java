@@ -22,6 +22,11 @@ public class loginMenu extends JFrame {
     private ImageIcon imageIcon = new ImageIcon(new ImageIcon("src/icon/account/account.png").getImage().getScaledInstance(64, 64, Image.SCALE_SMOOTH));
     public loginMenu() {
         this.initFrame();
+        try {
+            UIManager.setLookAndFeel(UIManager.getSystemLookAndFeelClassName());
+        } catch (Exception e) {
+            e.printStackTrace();
+        }
         navigateSignupButton.addActionListener(new ActionListener() {
             @Override
             public void actionPerformed(ActionEvent e) {
@@ -44,7 +49,7 @@ public class loginMenu extends JFrame {
                 }
                 else
                     JOptionPane.showMessageDialog(null, "Wrong username or password!"
-                        , "", JOptionPane.ERROR_MESSAGE);
+                        , "Error", JOptionPane.ERROR_MESSAGE);
             }
         });
     }
