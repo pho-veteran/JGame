@@ -1,5 +1,7 @@
 package GUI.AccountMenu;
 
+import BUS.AccountService;
+
 import javax.swing.*;
 import java.awt.*;
 import java.awt.event.ActionEvent;
@@ -26,6 +28,14 @@ public class registerMenu extends JFrame {
             public void actionPerformed(ActionEvent e) {
                 new loginMenu().setVisible(true);
                 dispose();
+            }
+        });
+        signUpButton.addActionListener(new ActionListener() {
+            @Override
+            public void actionPerformed(ActionEvent e) {
+                if (passwordField.getText().equals(confirmPasswordField.getText()))
+                    new AccountService().register(usernameField.getText(), passwordField.getText(), confirmPasswordField.getText());
+                else JOptionPane.showMessageDialog(null, "Passwords are not the same!");
             }
         });
     }

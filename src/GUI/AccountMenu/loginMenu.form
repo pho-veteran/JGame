@@ -97,7 +97,7 @@
           <verifyInputWhenFocusTarget value="true"/>
         </properties>
       </component>
-      <component id="3b98b" class="javax.swing.JButton" binding="signupButton">
+      <component id="3b98b" class="javax.swing.JButton" binding="navigateSignupButton">
         <constraints>
           <grid row="3" column="2" row-span="1" col-span="1" vsize-policy="0" hsize-policy="7" anchor="8" fill="0" indent="0" use-parent-layout="false">
             <preferred-size width="20" height="20"/>

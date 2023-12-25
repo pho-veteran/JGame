@@ -1,5 +1,7 @@
 package GUI.AccountMenu;
 
+import BUS.AccountService;
+
 import javax.swing.*;
 import java.awt.*;
 import java.awt.event.ActionEvent;
@@ -12,7 +14,7 @@ public class loginMenu extends JFrame {
     private JButton loginButton;
     private JPanel mainPanel;
     private JLabel navigateToSignUp;
-    private JButton signupButton;
+    private JButton navigateSignupButton;
     private JLabel usernameLabel;
     private JLabel passwordLabel;
     private JPasswordField passwordField;
@@ -20,11 +22,29 @@ public class loginMenu extends JFrame {
     private ImageIcon imageIcon = new ImageIcon(new ImageIcon("src/icon/account/account.png").getImage().getScaledInstance(64, 64, Image.SCALE_SMOOTH));
     public loginMenu() {
         this.initFrame();
-        signupButton.addActionListener(new ActionListener() {
+        navigateSignupButton.addActionListener(new ActionListener() {
             @Override
             public void actionPerformed(ActionEvent e) {
                 new registerMenu().setVisible(true);
                 dispose();
+            }
+        });
+        loginButton.addActionListener(new ActionListener() {
+            @Override
+            public void actionPerformed(ActionEvent e) {
+                String accessRight =
+                    new AccountService().login(usernameField.getText(), passwordField.getText());
+                if (accessRight.equals("admin")) {
+                    new GUI.Dashboard.Admin.adminDashboard().setVisible(true);
+                    dispose();
+                }
+                else if (accessRight.equals("user")) {
+                    new GUI.Dashboard.User.userDashboard().setVisible(true);
+                    dispose();
+                }
+                else
+                    JOptionPane.showMessageDialog(null, "Wrong username or password!"
+                        , "", JOptionPane.ERROR_MESSAGE);
             }
         });
     }
