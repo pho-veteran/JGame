@@ -24,11 +24,12 @@ public class userDashboard extends JFrame {
     private JLabel balanceLabel;
     private JLabel primeStatus;
     private JPanel inlineInfo;
-    private JPanel contentNaviPane;
+    private JPanel contentPane;
     private JButton exitButton;
     private JPanel mainContentPanel;
     private JPanel menuPanel;
     private JButton about;
+    private JButton profile;
     private Border currentBorder;
     private Account account;
     private ImageIcon imageIcon = new ImageIcon(new ImageIcon("src/icon/logo.png").getImage().getScaledInstance(200, 200, Image.SCALE_SMOOTH));
@@ -129,8 +130,12 @@ public class userDashboard extends JFrame {
         currentBorder = storeNavigator.getBorder();
         storeNavigator.setBorder(BorderFactory.createMatteBorder(0, 5, 0, 0, Color.decode("#0EB194")));
         storeNavigator.setBorderPainted(true);
-    }
 
+    }
+    private void createUIComponents() {
+        gameStorePanel gamePanel = new gameStorePanel();
+        contentPane = gamePanel;
+    }
     public static void main(String[] args) {
         new userDashboard(new Account("VINHSONGTOT", "123123", "User")).setVisible(true);
     }
