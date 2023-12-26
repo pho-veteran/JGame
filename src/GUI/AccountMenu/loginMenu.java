@@ -2,6 +2,7 @@ package GUI.AccountMenu;
 
 import BUS.AccountService;
 import DTO.Account;
+import GUI.Dashboard.User.userDashboard;
 
 import javax.swing.*;
 import java.awt.*;
@@ -19,13 +20,18 @@ public class loginMenu extends JFrame {
     private JLabel passwordLabel;
     private JPasswordField passwordField;
     private JLabel logo;
+    private JButton exitButton;
     private ImageIcon imageIcon = new ImageIcon(new ImageIcon("src/icon/account/account.png").getImage().getScaledInstance(64, 64, Image.SCALE_SMOOTH));
     public loginMenu() {
         this.initFrame();
         navigateSignupButton.addActionListener(new ActionListener() {
             @Override
             public void actionPerformed(ActionEvent e) {
-                new registerMenu().setVisible(true);
+                SwingUtilities.invokeLater(new Runnable() {
+                    public void run() {
+                        new registerMenu().setVisible(true);
+                    }
+                });
                 dispose();
             }
         });
@@ -54,10 +60,21 @@ public class loginMenu extends JFrame {
                     dispose();
                 }
                 else {
-                    new GUI.Dashboard.User.userDashboard(account).setVisible(true);
+                    SwingUtilities.invokeLater(new Runnable() {
+                        public void run() {
+                            new userDashboard(account).setVisible(true);
+                        }
+                    });
                     JOptionPane.showMessageDialog(null, "Welcome back, " + usernameField.getText() + "!", "Success", JOptionPane.INFORMATION_MESSAGE, imageIcon);
                     dispose();
                 }
+            }
+        });
+        //Exit button
+        exitButton.addActionListener(new ActionListener() {
+            @Override
+            public void actionPerformed(ActionEvent e) {
+                dispose();
             }
         });
     }
@@ -65,10 +82,10 @@ public class loginMenu extends JFrame {
         this.setTitle("Login");
         this.setContentPane(mainPanel);
         this.setDefaultCloseOperation(JFrame.EXIT_ON_CLOSE);
-        this.setSize(270, 320);
+        this.setSize(320, 320);
         this.setLocationRelativeTo(null);
         this.setResizable(false);
-
+        this.setUndecorated(true);
         usernameField.setBorder(BorderFactory.createLineBorder(Color.GRAY, 2));
         passwordField.setBorder(BorderFactory.createLineBorder(Color.GRAY, 2));
         logo.setIcon(imageIcon);

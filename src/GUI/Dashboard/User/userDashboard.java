@@ -2,11 +2,10 @@ package GUI.Dashboard.User;
 
 import BUS.AccountService;
 import DTO.Account;
+import GUI.Dashboard.aboutMenu;
 
 import javax.swing.*;
 import javax.swing.border.Border;
-import javax.swing.border.LineBorder;
-import javax.swing.border.MatteBorder;
 import java.awt.*;
 import java.awt.event.ActionEvent;
 import java.awt.event.ActionListener;
@@ -26,14 +25,34 @@ public class userDashboard extends JFrame {
     private JLabel primeStatus;
     private JPanel inlineInfo;
     private JPanel contentNaviPane;
+    private JButton exitButton;
+    private JPanel mainContentPanel;
+    private JPanel menuPanel;
+    private JButton about;
     private Border currentBorder;
     private Account account;
-    private ImageIcon imageIcon = new ImageIcon(new ImageIcon("src/icon/logo.png").getImage().getScaledInstance(170, 170, Image.SCALE_SMOOTH));
+    private ImageIcon imageIcon = new ImageIcon(new ImageIcon("src/icon/logo.png").getImage().getScaledInstance(200, 200, Image.SCALE_SMOOTH));
     public userDashboard(Account account) {
         this.account = account;
         this.initFrame();
         this.initListeners();
         this.initAccount();
+        exitButton.addActionListener(new ActionListener() {
+            @Override
+            public void actionPerformed(ActionEvent e) {
+                dispose();
+            }
+        });
+        about.addActionListener(new ActionListener() {
+            @Override
+            public void actionPerformed(ActionEvent e) {
+                SwingUtilities.invokeLater(new Runnable() {
+                    public void run() {
+                        new aboutMenu().setVisible(true);
+                    }
+                });
+            }
+        });
     }
     public void initListeners() {
         storeNavigator.addActionListener(new ActionListener() {
@@ -84,7 +103,7 @@ public class userDashboard extends JFrame {
         }
 
         if (balance != null) {
-            balanceLabel.setText(balance + " VND");
+            balanceLabel.setText(balance + "VND");
         }
 
         if (primeStatus != null) {
@@ -93,7 +112,7 @@ public class userDashboard extends JFrame {
                 primeStatus.setText("Prime Member");
             } else {
                 primeStatus.setForeground(Color.decode("#596275"));
-                primeStatus.setText("Normal Member");
+                primeStatus.setText("Non-Prime Member");
             }
         }
     }
@@ -104,6 +123,7 @@ public class userDashboard extends JFrame {
         this.setDefaultCloseOperation(JFrame.EXIT_ON_CLOSE);
         this.setSize(1200, 750);
         this.setLocationRelativeTo(null);
+        this.setUndecorated(true);
         logoLabel.setIcon(imageIcon);
         //Get current Border and Margin settings
         currentBorder = storeNavigator.getBorder();

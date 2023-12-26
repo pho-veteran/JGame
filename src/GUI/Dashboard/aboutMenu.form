@@ -1,0 +1,173 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<form xmlns="http://www.intellij.com/uidesigner/form/" version="1" bind-to-class="GUI.Dashboard.aboutMenu">
+  <grid id="27dc6" binding="mainPanel" layout-manager="GridLayoutManager" row-count="6" column-count="1" same-size-horizontally="false" same-size-vertically="false" hgap="-1" vgap="1">
+    <margin top="0" left="0" bottom="0" right="0"/>
+    <constraints>
+      <xy x="20" y="20" width="500" height="400"/>
+    </constraints>
+    <properties>
+      <background color="-13616814"/>
+    </properties>
+    <border type="line">
+      <color color="-3421237"/>
+    </border>
+    <children>
+      <grid id="33796" binding="TitlePanel" layout-manager="GridLayoutManager" row-count="3" column-count="1" same-size-horizontally="false" same-size-vertically="false" hgap="-1" vgap="3">
+        <margin top="0" left="0" bottom="0" right="0"/>
+        <constraints>
+          <grid row="2" column="0" row-span="1" col-span="1" vsize-policy="3" hsize-policy="0" anchor="0" fill="2" indent="0" use-parent-layout="false"/>
+        </constraints>
+        <properties>
+          <background color="-13616814"/>
+        </properties>
+        <border type="none"/>
+        <children>
+          <component id="e6be" class="javax.swing.JLabel" binding="firstRow">
+            <constraints>
+              <grid row="2" column="0" row-span="1" col-span="1" vsize-policy="0" hsize-policy="0" anchor="0" fill="0" indent="0" use-parent-layout="false"/>
+            </constraints>
+            <properties>
+              <font name="Inter" size="36" style="1"/>
+              <foreground color="-197380"/>
+              <text value="System - JGame"/>
+            </properties>
+          </component>
+          <component id="4144b" class="javax.swing.JLabel" binding="secondRow">
+            <constraints>
+              <grid row="1" column="0" row-span="1" col-span="1" vsize-policy="0" hsize-policy="0" anchor="0" fill="0" indent="0" use-parent-layout="false"/>
+            </constraints>
+            <properties>
+              <font name="Inter" size="36" style="1"/>
+              <foreground color="-197380"/>
+              <text value="Management"/>
+            </properties>
+          </component>
+          <component id="4885e" class="javax.swing.JLabel" binding="thirdRow">
+            <constraints>
+              <grid row="0" column="0" row-span="1" col-span="1" vsize-policy="0" hsize-policy="0" anchor="0" fill="0" indent="0" use-parent-layout="false"/>
+            </constraints>
+            <properties>
+              <font name="Inter" size="36" style="1"/>
+              <foreground color="-197380"/>
+              <text value="Gaming Sales"/>
+            </properties>
+          </component>
+        </children>
+      </grid>
+      <grid id="f58af" binding="infomationPanel" layout-manager="GridLayoutManager" row-count="3" column-count="2" same-size-horizontally="false" same-size-vertically="false" hgap="5" vgap="5">
+        <margin top="5" left="5" bottom="5" right="5"/>
+        <constraints>
+          <grid row="4" column="0" row-span="1" col-span="1" vsize-policy="3" hsize-policy="3" anchor="0" fill="2" indent="0" use-parent-layout="false"/>
+        </constraints>
+        <properties>
+          <background color="-13616814"/>
+        </properties>
+        <border type="none" title="Student Infomation" title-justification="2">
+          <font name="Consolas" size="18" style="1"/>
+          <title-color color="-197380"/>
+        </border>
+        <children>
+          <component id="245c1" class="javax.swing.JLabel" binding="fullName">
+            <constraints>
+              <grid row="0" column="0" row-span="1" col-span="1" vsize-policy="0" hsize-policy="0" anchor="8" fill="0" indent="0" use-parent-layout="false"/>
+            </constraints>
+            <properties>
+              <font name="Inter" size="16" style="1"/>
+              <foreground color="-197380"/>
+              <text value="Full Name"/>
+            </properties>
+          </component>
+          <component id="d2b29" class="javax.swing.JLabel" binding="fullNameInfo">
+            <constraints>
+              <grid row="0" column="1" row-span="1" col-span="1" vsize-policy="0" hsize-policy="0" anchor="8" fill="0" indent="0" use-parent-layout="false"/>
+            </constraints>
+            <properties>
+              <font name="Inter" size="16" style="0"/>
+              <foreground color="-197380"/>
+              <text value="Nguyen Thanh Vinh"/>
+            </properties>
+          </component>
+          <component id="7c69" class="javax.swing.JLabel" binding="studentCode">
+            <constraints>
+              <grid row="1" column="0" row-span="1" col-span="1" vsize-policy="0" hsize-policy="0" anchor="8" fill="0" indent="0" use-parent-layout="false"/>
+            </constraints>
+            <properties>
+              <font name="Inter" size="16" style="1"/>
+              <foreground color="-197380"/>
+              <text value="Student code     "/>
+            </properties>
+          </component>
+          <component id="f0fc5" class="javax.swing.JLabel" binding="classes">
+            <constraints>
+              <grid row="2" column="0" row-span="1" col-span="1" vsize-policy="0" hsize-policy="0" anchor="8" fill="0" indent="0" use-parent-layout="false"/>
+            </constraints>
+            <properties>
+              <font name="Inter" size="16" style="1"/>
+              <foreground color="-197380"/>
+              <text value="Class"/>
+            </properties>
+          </component>
+          <component id="c2c88" class="javax.swing.JLabel" binding="studentCodeInfo">
+            <constraints>
+              <grid row="1" column="1" row-span="1" col-span="1" vsize-policy="0" hsize-policy="0" anchor="8" fill="0" indent="0" use-parent-layout="false"/>
+            </constraints>
+            <properties>
+              <font name="Inter" size="16" style="0"/>
+              <foreground color="-197380"/>
+              <text value="23IT313"/>
+            </properties>
+          </component>
+          <component id="42917" class="javax.swing.JLabel" binding="classInfo">
+            <constraints>
+              <grid row="2" column="1" row-span="1" col-span="1" vsize-policy="0" hsize-policy="0" anchor="8" fill="0" indent="0" use-parent-layout="false"/>
+            </constraints>
+            <properties>
+              <font name="Inter" size="16" style="0"/>
+              <foreground color="-197380"/>
+              <text value="23GIT"/>
+            </properties>
+          </component>
+        </children>
+      </grid>
+      <vspacer id="4a618">
+        <constraints>
+          <grid row="3" column="0" row-span="1" col-span="1" vsize-policy="6" hsize-policy="1" anchor="0" fill="2" indent="0" use-parent-layout="false">
+            <minimum-size width="-1" height="10"/>
+          </grid>
+        </constraints>
+      </vspacer>
+      <vspacer id="33a5e">
+        <constraints>
+          <grid row="5" column="0" row-span="1" col-span="1" vsize-policy="6" hsize-policy="1" anchor="0" fill="2" indent="0" use-parent-layout="false">
+            <minimum-size width="-1" height="10"/>
+          </grid>
+        </constraints>
+      </vspacer>
+      <vspacer id="e25c">
+        <constraints>
+          <grid row="1" column="0" row-span="1" col-span="1" vsize-policy="6" hsize-policy="1" anchor="0" fill="2" indent="0" use-parent-layout="false">
+            <minimum-size width="-1" height="10"/>
+          </grid>
+        </constraints>
+      </vspacer>
+      <component id="45ffb" class="javax.swing.JButton" binding="exitButton">
+        <constraints>
+          <grid row="0" column="0" row-span="1" col-span="1" vsize-policy="0" hsize-policy="0" anchor="5" fill="0" indent="0" use-parent-layout="false">
+            <minimum-size width="-1" height="10"/>
+          </grid>
+        </constraints>
+        <properties>
+          <background color="-10657948"/>
+          <borderPainted value="false"/>
+          <contentAreaFilled value="false"/>
+          <focusPainted value="false"/>
+          <font name="Inter" size="16" style="1"/>
+          <foreground color="-197380"/>
+          <horizontalAlignment value="4"/>
+          <horizontalTextPosition value="0"/>
+          <text value="X"/>
+        </properties>
+      </component>
+    </children>
+  </grid>
+</form>

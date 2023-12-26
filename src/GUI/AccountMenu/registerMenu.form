@@ -1,6 +1,6 @@
 <?xml version="1.0" encoding="UTF-8"?>
 <form xmlns="http://www.intellij.com/uidesigner/form/" version="1" bind-to-class="GUI.AccountMenu.registerMenu">
-  <grid id="27dc6" binding="mainPanel" layout-manager="GridLayoutManager" row-count="5" column-count="4" same-size-horizontally="false" same-size-vertically="false" hgap="-1" vgap="-1">
+  <grid id="27dc6" binding="mainPanel" layout-manager="GridLayoutManager" row-count="6" column-count="4" same-size-horizontally="false" same-size-vertically="false" hgap="-1" vgap="-1">
     <margin top="0" left="0" bottom="0" right="0"/>
     <constraints>
       <xy x="20" y="20" width="500" height="357"/>
@@ -96,9 +96,9 @@
           </component>
         </children>
       </grid>
-      <component id="4865a" class="javax.swing.JLabel" binding="header">
+      <component id="4865a" class="javax.swing.JLabel" binding="logo">
         <constraints>
-          <grid row="1" column="1" row-span="1" col-span="2" vsize-policy="0" hsize-policy="0" anchor="0" fill="0" indent="0" use-parent-layout="false"/>
+          <grid row="1" column="1" row-span="1" col-span="2" vsize-policy="7" hsize-policy="7" anchor="0" fill="0" indent="0" use-parent-layout="false"/>
         </constraints>
         <properties>
           <enabled value="true"/>
@@ -123,11 +123,11 @@
         <properties>
           <background color="-197380"/>
           <enabled value="true"/>
-          <font name="Times New Roman" size="12" style="0"/>
+          <font name="Inter" size="12" style="0"/>
           <foreground color="-197380"/>
           <horizontalAlignment value="0"/>
           <horizontalTextPosition value="0"/>
-          <text value="Already have an account?"/>
+          <text value="Already have an account?  "/>
         </properties>
       </component>
       <component id="a173a" class="javax.swing.JButton" binding="navigateToLoginButton">
@@ -168,7 +168,7 @@
       </component>
       <hspacer id="27685">
         <constraints>
-          <grid row="2" column="3" row-span="2" col-span="1" vsize-policy="1" hsize-policy="6" anchor="0" fill="1" indent="0" use-parent-layout="false"/>
+          <grid row="2" column="3" row-span="1" col-span="1" vsize-policy="1" hsize-policy="6" anchor="0" fill="1" indent="0" use-parent-layout="false"/>
         </constraints>
       </hspacer>
       <hspacer id="66e83">
@@ -176,9 +176,47 @@
           <grid row="2" column="0" row-span="2" col-span="1" vsize-policy="1" hsize-policy="6" anchor="0" fill="1" indent="0" use-parent-layout="false"/>
         </constraints>
       </hspacer>
-      <vspacer id="70669">
+      <component id="2d615" class="javax.swing.JButton" binding="exitButton">
         <constraints>
-          <grid row="0" column="0" row-span="1" col-span="4" vsize-policy="6" hsize-policy="1" anchor="0" fill="2" indent="0" use-parent-layout="false"/>
+          <grid row="0" column="3" row-span="1" col-span="1" vsize-policy="0" hsize-policy="0" anchor="5" fill="0" indent="0" use-parent-layout="false">
+            <minimum-size width="-1" height="10"/>
+          </grid>
+        </constraints>
+        <properties>
+          <background color="-10657948"/>
+          <borderPainted value="false"/>
+          <contentAreaFilled value="false"/>
+          <focusPainted value="false"/>
+          <font name="Inter" size="16" style="1"/>
+          <foreground color="-197380"/>
+          <horizontalAlignment value="4"/>
+          <horizontalTextPosition value="0"/>
+          <text value="X"/>
+        </properties>
+      </component>
+      <component id="71e8e" class="javax.swing.JButton">
+        <constraints>
+          <grid row="0" column="0" row-span="1" col-span="1" vsize-policy="0" hsize-policy="0" anchor="9" fill="0" indent="0" use-parent-layout="false">
+            <minimum-size width="-1" height="10"/>
+          </grid>
+        </constraints>
+        <properties>
+          <background color="-10657948"/>
+          <borderPainted value="false"/>
+          <contentAreaFilled value="false"/>
+          <focusPainted value="false"/>
+          <font name="Inter" size="16" style="1"/>
+          <foreground color="-197380"/>
+          <horizontalAlignment value="4"/>
+          <horizontalTextPosition value="0"/>
+          <text value=" "/>
+        </properties>
+      </component>
+      <vspacer id="9fdcf">
+        <constraints>
+          <grid row="5" column="1" row-span="1" col-span="2" vsize-policy="6" hsize-policy="1" anchor="0" fill="2" indent="0" use-parent-layout="false">
+            <minimum-size width="-1" height="5"/>
+          </grid>
         </constraints>
       </vspacer>
     </children>
