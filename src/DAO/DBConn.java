@@ -6,7 +6,7 @@ import java.sql.DriverManager;
 import java.sql.SQLException;
 
 public class DBConn {
-    private String url = "jdbc:mysql://localhost:3306/studentmanagement";
+    private String url = "jdbc:mysql://localhost:3306/gamemanagement";
     private String username = "root";
     private String password = "Ntv06042005@";
     private String driver = "com.mysql.cj.jdbc.Driver";

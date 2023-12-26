@@ -1,6 +1,7 @@
 package GUI.AccountMenu;
 
 import BUS.AccountService;
+import DTO.Account;
 
 import javax.swing.*;
 import java.awt.*;
@@ -8,7 +9,6 @@ import java.awt.event.ActionEvent;
 import java.awt.event.ActionListener;
 
 public class loginMenu extends JFrame {
-
     private JPanel inputPanel;
     private JTextField usernameField;
     private JButton loginButton;
@@ -22,11 +22,6 @@ public class loginMenu extends JFrame {
     private ImageIcon imageIcon = new ImageIcon(new ImageIcon("src/icon/account/account.png").getImage().getScaledInstance(64, 64, Image.SCALE_SMOOTH));
     public loginMenu() {
         this.initFrame();
-        try {
-            UIManager.setLookAndFeel(UIManager.getSystemLookAndFeelClassName());
-        } catch (Exception e) {
-            e.printStackTrace();
-        }
         navigateSignupButton.addActionListener(new ActionListener() {
             @Override
             public void actionPerformed(ActionEvent e) {
@@ -37,19 +32,32 @@ public class loginMenu extends JFrame {
         loginButton.addActionListener(new ActionListener() {
             @Override
             public void actionPerformed(ActionEvent e) {
-                String accessRight =
-                    new AccountService().login(usernameField.getText(), passwordField.getText());
-                if (accessRight.equals("admin")) {
-                    new GUI.Dashboard.Admin.adminDashboard().setVisible(true);
-                    dispose();
+                //Check if the fields are empty
+                if (usernameField.getText().equals("") || passwordField.getText().equals("")) {
+                    JOptionPane.showMessageDialog(null, "Please fill in all the fields!", "Error", JOptionPane.ERROR_MESSAGE);
+                    return;
                 }
-                else if (accessRight.equals("user")) {
-                    new GUI.Dashboard.User.userDashboard().setVisible(true);
-                    dispose();
-                }
-                else
+
+                //Check if the username exists
+                Account account = new AccountService().login(usernameField.getText(), passwordField.getText());
+                if (account == null) {
                     JOptionPane.showMessageDialog(null, "Wrong username or password!"
-                        , "Error", JOptionPane.ERROR_MESSAGE);
+                            , "Error", JOptionPane.ERROR_MESSAGE);
+                    return;
+                }
+
+                //Check if the account is a user or an admin
+                String accessRight = account.getAccessRight();
+                if (accessRight.equals("Admin")) {
+                    new GUI.Dashboard.Admin.adminDashboard().setVisible(true);
+                    JOptionPane.showMessageDialog(null, "Welcome back, admin!", "Success", JOptionPane.INFORMATION_MESSAGE);
+                    dispose();
+                }
+                else {
+                    new GUI.Dashboard.User.userDashboard(account).setVisible(true);
+                    JOptionPane.showMessageDialog(null, "Welcome back, " + usernameField.getText() + "!", "Success", JOptionPane.INFORMATION_MESSAGE, imageIcon);
+                    dispose();
+                }
             }
         });
     }

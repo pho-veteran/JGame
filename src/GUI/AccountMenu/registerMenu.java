@@ -6,6 +6,7 @@ import javax.swing.*;
 import java.awt.*;
 import java.awt.event.ActionEvent;
 import java.awt.event.ActionListener;
+import java.sql.SQLException;
 
 public class registerMenu extends JFrame {
     private JLabel header;
@@ -33,9 +34,25 @@ public class registerMenu extends JFrame {
         signUpButton.addActionListener(new ActionListener() {
             @Override
             public void actionPerformed(ActionEvent e) {
-                if (usernameField.getText()!= null && passwordField.getText().equals(confirmPasswordField.getText()))
-                    new AccountService().register(usernameField.getText(), passwordField.getText(), confirmPasswordField.getText());
-                else JOptionPane.showMessageDialog(null, "Passwords are not the same!", "Error", JOptionPane.ERROR_MESSAGE);
+                if (usernameField.getText() != null && passwordField.getText().equals(confirmPasswordField.getText())) {
+                    Integer status = null;
+
+                    try {
+                        status = new AccountService().register(usernameField.getText(), passwordField.getText());
+                    } catch (SQLException ex) {
+                        ex.printStackTrace();
+                    }
+
+                    if (status == 1) {
+                        JOptionPane.showMessageDialog(null, "Registration successful!", "Success", JOptionPane.INFORMATION_MESSAGE);
+                        new loginMenu().setVisible(true);
+                        dispose();
+                    } else if (status == -1)
+                        JOptionPane.showMessageDialog(null, "Account exist!", "Error", JOptionPane.ERROR_MESSAGE);
+                    else JOptionPane.showMessageDialog(null, "Registration failed!", "Error", JOptionPane.ERROR_MESSAGE);
+                }
+                else
+                    JOptionPane.showMessageDialog(null, "Passwords are not the same!", "Error", JOptionPane.ERROR_MESSAGE);
             }
         });
     }
@@ -52,9 +69,5 @@ public class registerMenu extends JFrame {
         passwordField.setBorder(BorderFactory.createLineBorder(Color.GRAY, 2));
         confirmPasswordField.setBorder(BorderFactory.createLineBorder(Color.GRAY, 2));
         header.setIcon(imageIcon);
-    }
-
-    public static void main(String[] args) {
-        new registerMenu().setVisible(true);
     }
 }
