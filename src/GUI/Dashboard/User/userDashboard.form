@@ -1,9 +1,9 @@
 <?xml version="1.0" encoding="UTF-8"?>
 <form xmlns="http://www.intellij.com/uidesigner/form/" version="1" bind-to-class="GUI.Dashboard.User.userDashboard">
-  <grid id="27dc6" binding="mainPanel" layout-manager="GridLayoutManager" row-count="1" column-count="2" same-size-horizontally="false" same-size-vertically="false" hgap="-1" vgap="-1">
+  <grid id="27dc6" binding="mainPanel" layout-manager="GridLayoutManager" row-count="2" column-count="2" same-size-horizontally="false" same-size-vertically="false" hgap="-1" vgap="-1">
     <margin top="0" left="0" bottom="0" right="0"/>
     <constraints>
-      <xy x="20" y="20" width="657" height="561"/>
+      <xy x="20" y="20" width="639" height="534"/>
     </constraints>
     <properties>
       <alignmentX value="0.5"/>
@@ -11,45 +11,102 @@
     </properties>
     <border type="none"/>
     <children>
-      <grid id="e6aa4" binding="leftPanel" layout-manager="GridLayoutManager" row-count="3" column-count="1" same-size-horizontally="false" same-size-vertically="false" hgap="-1" vgap="-1">
+      <grid id="e6aa4" binding="leftPanel" layout-manager="GridLayoutManager" row-count="7" column-count="2" same-size-horizontally="false" same-size-vertically="false" hgap="-1" vgap="-1">
         <margin top="0" left="0" bottom="0" right="0"/>
         <constraints>
-          <grid row="0" column="0" row-span="1" col-span="1" vsize-policy="3" hsize-policy="3" anchor="0" fill="3" indent="0" use-parent-layout="false"/>
+          <grid row="0" column="0" row-span="2" col-span="1" vsize-policy="3" hsize-policy="3" anchor="0" fill="2" indent="0" use-parent-layout="false"/>
         </constraints>
         <properties>
           <background color="-13616814"/>
         </properties>
         <border type="none"/>
         <children>
-          <grid id="51466" binding="profileInfo" layout-manager="GridLayoutManager" row-count="1" column-count="1" same-size-horizontally="false" same-size-vertically="false" hgap="-1" vgap="-1">
+          <grid id="51466" binding="profileInfo" layout-manager="GridLayoutManager" row-count="2" column-count="1" same-size-horizontally="false" same-size-vertically="false" hgap="-1" vgap="-1">
             <margin top="0" left="0" bottom="0" right="0"/>
             <constraints>
-              <grid row="0" column="0" row-span="1" col-span="1" vsize-policy="0" hsize-policy="0" anchor="0" fill="3" indent="0" use-parent-layout="false"/>
-            </constraints>
-            <properties>
-              <background color="-13616814"/>
-            </properties>
-            <border type="none"/>
-            <children/>
-          </grid>
-          <grid id="fb504" binding="navigator" layout-manager="GridLayoutManager" row-count="5" column-count="1" same-size-horizontally="false" same-size-vertically="false" hgap="-1" vgap="-1">
-            <margin top="0" left="0" bottom="0" right="0"/>
-            <constraints>
-              <grid row="2" column="0" row-span="1" col-span="1" vsize-policy="0" hsize-policy="0" anchor="0" fill="3" indent="0" use-parent-layout="false"/>
+              <grid row="1" column="1" row-span="1" col-span="1" vsize-policy="0" hsize-policy="0" anchor="0" fill="3" indent="0" use-parent-layout="false"/>
             </constraints>
             <properties>
               <background color="-13616814"/>
             </properties>
             <border type="none"/>
             <children>
-              <vspacer id="8d62">
+              <component id="848dc" class="javax.swing.JLabel" binding="logoLabel">
                 <constraints>
-                  <grid row="0" column="0" row-span="1" col-span="1" vsize-policy="6" hsize-policy="1" anchor="0" fill="2" indent="0" use-parent-layout="false"/>
+                  <grid row="0" column="0" row-span="1" col-span="1" vsize-policy="0" hsize-policy="0" anchor="0" fill="0" indent="0" use-parent-layout="false"/>
                 </constraints>
-              </vspacer>
+                <properties>
+                  <horizontalAlignment value="0"/>
+                  <horizontalTextPosition value="0"/>
+                  <text value=""/>
+                </properties>
+              </component>
+              <grid id="6f85f" binding="inlineInfo" layout-manager="GridLayoutManager" row-count="3" column-count="1" same-size-horizontally="false" same-size-vertically="false" hgap="-1" vgap="-1">
+                <margin top="0" left="0" bottom="0" right="0"/>
+                <constraints>
+                  <grid row="1" column="0" row-span="1" col-span="1" vsize-policy="3" hsize-policy="3" anchor="0" fill="3" indent="0" use-parent-layout="false">
+                    <preferred-size width="98" height="78"/>
+                  </grid>
+                </constraints>
+                <properties>
+                  <background color="-13616814"/>
+                </properties>
+                <border type="none" title="Infomation" title-position="2">
+                  <font name="Consolas" size="18" style="1"/>
+                  <title-color color="-2497823"/>
+                </border>
+                <children>
+                  <component id="20a9b" class="javax.swing.JLabel" binding="usernameLabel">
+                    <constraints>
+                      <grid row="0" column="0" row-span="1" col-span="1" vsize-policy="0" hsize-policy="0" anchor="0" fill="0" indent="0" use-parent-layout="false"/>
+                    </constraints>
+                    <properties>
+                      <font name="Inter Semi Bold" size="16" style="1"/>
+                      <foreground color="-1677465"/>
+                      <text value="VINHSONGTOT"/>
+                    </properties>
+                  </component>
+                  <component id="944a6" class="javax.swing.JLabel" binding="balanceLabel">
+                    <constraints>
+                      <grid row="1" column="0" row-span="1" col-span="1" vsize-policy="0" hsize-policy="0" anchor="0" fill="0" indent="0" use-parent-layout="false"/>
+                    </constraints>
+                    <properties>
+                      <font name="Consolas" size="16" style="0"/>
+                      <foreground color="-534636"/>
+                      <text value="Prime Member"/>
+                    </properties>
+                  </component>
+                  <component id="40976" class="javax.swing.JLabel" binding="primeStatus">
+                    <constraints>
+                      <grid row="2" column="0" row-span="1" col-span="1" vsize-policy="0" hsize-policy="0" anchor="0" fill="0" indent="0" use-parent-layout="false"/>
+                    </constraints>
+                    <properties>
+                      <font name="Consolas" size="16" style="0"/>
+                      <foreground color="-9968249"/>
+                      <text value="100.0$"/>
+                    </properties>
+                  </component>
+                </children>
+              </grid>
+            </children>
+          </grid>
+          <grid id="fb504" binding="navigator" layout-manager="GridLayoutManager" row-count="3" column-count="1" same-size-horizontally="false" same-size-vertically="false" hgap="-1" vgap="-1">
+            <margin top="2" left="2" bottom="2" right="2"/>
+            <constraints>
+              <grid row="5" column="1" row-span="1" col-span="1" vsize-policy="6" hsize-policy="0" anchor="0" fill="3" indent="0" use-parent-layout="false"/>
+            </constraints>
+            <properties>
+              <autoscrolls value="true"/>
+              <background color="-13616814"/>
+            </properties>
+            <border type="none" title="Navigation">
+              <font name="Consolas" size="18" style="1"/>
+              <title-color color="-197380"/>
+            </border>
+            <children>
               <component id="4e644" class="javax.swing.JButton" binding="storeNavigator">
                 <constraints>
-                  <grid row="1" column="0" row-span="1" col-span="1" vsize-policy="0" hsize-policy="2" anchor="0" fill="1" indent="0" use-parent-layout="false"/>
+                  <grid row="0" column="0" row-span="1" col-span="1" vsize-policy="0" hsize-policy="6" anchor="0" fill="1" indent="0" use-parent-layout="false"/>
                 </constraints>
                 <properties>
                   <alignmentX value="0.5"/>
@@ -59,64 +116,62 @@
                   <contentAreaFilled value="true"/>
                   <focusPainted value="false"/>
                   <focusTraversalPolicyProvider value="false"/>
-                  <font size="20" style="1"/>
+                  <font name="Inter" size="20" style="1"/>
                   <foreground color="-197380"/>
                   <hideActionText value="false"/>
+                  <horizontalAlignment value="0"/>
                   <icon value="icon/dashboard/user/storeLogo.png"/>
                   <iconTextGap value="10"/>
                   <opaque value="true"/>
                   <requestFocusEnabled value="true"/>
                   <selected value="true"/>
-                  <text value="Store"/>
+                  <text value="Store  "/>
                   <verifyInputWhenFocusTarget value="true"/>
                 </properties>
               </component>
               <component id="350a7" class="javax.swing.JButton" binding="libraryNavigator">
                 <constraints>
-                  <grid row="2" column="0" row-span="1" col-span="1" vsize-policy="0" hsize-policy="2" anchor="0" fill="1" indent="0" use-parent-layout="false"/>
+                  <grid row="1" column="0" row-span="1" col-span="1" vsize-policy="0" hsize-policy="2" anchor="0" fill="1" indent="0" use-parent-layout="false"/>
                 </constraints>
                 <properties>
+                  <actionCommand value="Library   "/>
                   <alignmentX value="0.0"/>
                   <background color="-13616814"/>
                   <borderPainted value="false"/>
                   <focusPainted value="false"/>
-                  <font size="20" style="1"/>
+                  <font name="Inter" size="20" style="1"/>
                   <foreground color="-197380"/>
                   <horizontalTextPosition value="11"/>
                   <icon value="icon/dashboard/user/libraryLogo.png"/>
                   <iconTextGap value="10"/>
-                  <margin top="2" left="2" bottom="2" right="2"/>
+                  <margin top="0" left="0" bottom="0" right="0"/>
+                  <opaque value="true"/>
                   <text value="Library"/>
                 </properties>
               </component>
               <component id="41803" class="javax.swing.JButton" binding="walletNavigator">
                 <constraints>
-                  <grid row="3" column="0" row-span="1" col-span="1" vsize-policy="0" hsize-policy="3" anchor="0" fill="1" indent="0" use-parent-layout="false"/>
+                  <grid row="2" column="0" row-span="1" col-span="1" vsize-policy="0" hsize-policy="3" anchor="0" fill="1" indent="0" use-parent-layout="false"/>
                 </constraints>
                 <properties>
                   <background color="-13616814"/>
                   <borderPainted value="false"/>
                   <focusPainted value="false"/>
-                  <font size="20" style="1"/>
+                  <font name="Inter" size="20" style="1"/>
                   <foreground color="-197380"/>
                   <icon value="icon/dashboard/user/walletLogo.png"/>
                   <iconTextGap value="10"/>
-                  <label value="Wallet"/>
+                  <label value="Wallet "/>
                   <requestFocusEnabled value="true"/>
-                  <text value="Wallet"/>
+                  <text value="Wallet "/>
                 </properties>
               </component>
-              <vspacer id="c2ed3">
-                <constraints>
-                  <grid row="4" column="0" row-span="1" col-span="1" vsize-policy="6" hsize-policy="1" anchor="0" fill="2" indent="0" use-parent-layout="false"/>
-                </constraints>
-              </vspacer>
             </children>
           </grid>
           <component id="49ab0" class="javax.swing.JSeparator" binding="separator1">
             <constraints>
-              <grid row="1" column="0" row-span="1" col-span="1" vsize-policy="0" hsize-policy="3" anchor="0" fill="3" indent="0" use-parent-layout="false">
-                <preferred-size width="-1" height="10"/>
+              <grid row="3" column="1" row-span="1" col-span="1" vsize-policy="0" hsize-policy="3" anchor="2" fill="1" indent="0" use-parent-layout="false">
+                <preferred-size width="-1" height="5"/>
               </grid>
             </constraints>
             <properties>
@@ -126,13 +181,69 @@
               <opaque value="true"/>
             </properties>
           </component>
+          <vspacer id="c1376">
+            <constraints>
+              <grid row="0" column="1" row-span="1" col-span="1" vsize-policy="6" hsize-policy="1" anchor="0" fill="2" indent="0" use-parent-layout="false">
+                <minimum-size width="1" height="-1"/>
+              </grid>
+            </constraints>
+          </vspacer>
+          <vspacer id="363b8">
+            <constraints>
+              <grid row="2" column="1" row-span="1" col-span="1" vsize-policy="6" hsize-policy="1" anchor="0" fill="2" indent="0" use-parent-layout="false">
+                <minimum-size width="1" height="-1"/>
+              </grid>
+            </constraints>
+          </vspacer>
+          <vspacer id="2f885">
+            <constraints>
+              <grid row="0" column="0" row-span="7" col-span="1" vsize-policy="6" hsize-policy="1" anchor="0" fill="2" indent="0" use-parent-layout="false"/>
+            </constraints>
+          </vspacer>
+          <vspacer id="c2ed3">
+            <constraints>
+              <grid row="6" column="1" row-span="1" col-span="1" vsize-policy="6" hsize-policy="1" anchor="0" fill="2" indent="0" use-parent-layout="false">
+                <minimum-size width="1" height="-1"/>
+                <preferred-size width="10" height="10"/>
+              </grid>
+            </constraints>
+          </vspacer>
+          <vspacer id="8d62">
+            <constraints>
+              <grid row="4" column="1" row-span="1" col-span="1" vsize-policy="6" hsize-policy="5" anchor="0" fill="2" indent="0" use-parent-layout="false">
+                <minimum-size width="1" height="-1"/>
+                <preferred-size width="10" height="10"/>
+              </grid>
+            </constraints>
+          </vspacer>
         </children>
       </grid>
       <hspacer id="94788">
         <constraints>
-          <grid row="0" column="1" row-span="1" col-span="1" vsize-policy="1" hsize-policy="6" anchor="0" fill="1" indent="0" use-parent-layout="false"/>
+          <grid row="1" column="1" row-span="1" col-span="1" vsize-policy="1" hsize-policy="6" anchor="0" fill="1" indent="0" use-parent-layout="false"/>
         </constraints>
       </hspacer>
+      <grid id="5e9d7" binding="contentNaviPane" layout-manager="GridLayoutManager" row-count="1" column-count="1" same-size-horizontally="false" same-size-vertically="false" hgap="-1" vgap="-1">
+        <margin top="0" left="0" bottom="0" right="0"/>
+        <constraints>
+          <grid row="0" column="1" row-span="1" col-span="1" vsize-policy="3" hsize-policy="3" anchor="0" fill="3" indent="0" use-parent-layout="false"/>
+        </constraints>
+        <properties>
+          <autoscrolls value="false"/>
+          <background color="-13421773"/>
+        </properties>
+        <border type="none"/>
+        <children>
+          <component id="abb0" class="javax.swing.JLabel">
+            <constraints>
+              <grid row="0" column="0" row-span="1" col-span="1" vsize-policy="0" hsize-policy="0" anchor="8" fill="0" indent="0" use-parent-layout="false"/>
+            </constraints>
+            <properties>
+              <text value="Label"/>
+            </properties>
+          </component>
+        </children>
+      </grid>
     </children>
   </grid>
 </form>
