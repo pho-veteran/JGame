@@ -1,5 +1,7 @@
 package GUI.Dashboard.User;
 
+import DTO.Account;
+
 import javax.swing.*;
 
 public class gameStorePanel extends JPanel {
@@ -8,8 +10,8 @@ public class gameStorePanel extends JPanel {
     private JLabel header;
     private JPanel gameListPanel;
     private JButton button1;
-
-    public gameStorePanel() {
+    private Account account;
+    public gameStorePanel(Account account) {
         this.add(mainPanel);
     }
 }

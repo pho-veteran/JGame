@@ -24,15 +24,16 @@ public class userDashboard extends JFrame {
     private JLabel balanceLabel;
     private JLabel primeStatus;
     private JPanel inlineInfo;
-    private JPanel contentPane;
+    private JPanel contentPanel;
     private JButton exitButton;
-    private JPanel mainContentPanel;
     private JPanel menuPanel;
     private JButton about;
     private JButton profile;
     private Border currentBorder;
     private Account account;
     private ImageIcon imageIcon = new ImageIcon(new ImageIcon("src/icon/logo.png").getImage().getScaledInstance(200, 200, Image.SCALE_SMOOTH));
+    private CardLayout cardLayout = new CardLayout();
+    private JPanel mainContentPanel;
     public userDashboard(Account account) {
         this.account = account;
         this.initFrame();
@@ -65,6 +66,7 @@ public class userDashboard extends JFrame {
                 storeNavigator.setBorderPainted(true);
                 libraryNavigator.setBorderPainted(false);
                 walletNavigator.setBorderPainted(false);
+                cardLayout.show(mainContentPanel, "gameStorePanel");
             }
         });
 
@@ -77,6 +79,7 @@ public class userDashboard extends JFrame {
                 storeNavigator.setBorderPainted(false);
                 libraryNavigator.setBorderPainted(true);
                 walletNavigator.setBorderPainted(false);
+                cardLayout.show(mainContentPanel, "libraryPanel");
             }
         });
 
@@ -89,6 +92,7 @@ public class userDashboard extends JFrame {
                 storeNavigator.setBorderPainted(false);
                 libraryNavigator.setBorderPainted(false);
                 walletNavigator.setBorderPainted(true);
+                cardLayout.show(mainContentPanel, "walletPanel");
             }
         });
     }
@@ -126,15 +130,20 @@ public class userDashboard extends JFrame {
         this.setLocationRelativeTo(null);
         this.setUndecorated(true);
         logoLabel.setIcon(imageIcon);
+
         //Get current Border and Margin settings
         currentBorder = storeNavigator.getBorder();
         storeNavigator.setBorder(BorderFactory.createMatteBorder(0, 5, 0, 0, Color.decode("#0EB194")));
         storeNavigator.setBorderPainted(true);
 
-    }
-    private void createUIComponents() {
-        gameStorePanel gamePanel = new gameStorePanel();
-        contentPane = gamePanel;
+        //Init mainContentPanel cardLayout
+        mainContentPanel = new JPanel();
+        mainContentPanel.setLayout(cardLayout);
+        mainContentPanel.add(new gameStorePanel(account), "gameStorePanel");
+        mainContentPanel.add(new libraryPanel(account), "libraryPanel");
+        mainContentPanel.add(new walletPanel(account), "walletPanel");
+
+        contentPanel.add(mainContentPanel, BorderLayout.CENTER);
     }
     public static void main(String[] args) {
         new userDashboard(new Account("VINHSONGTOT", "123123", "User")).setVisible(true);

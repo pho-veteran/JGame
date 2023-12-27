@@ -33,14 +33,16 @@ public class NavigationExample {
         panel3.add(new JLabel("This is Panel 3"));
         mainPanel.add(panel3, "Panel3");
 
-        // Navigation buttons
+        //Navigation buttons
+        JButton panel1Button = new JButton("Panel 1");
         JButton prevButton = new JButton("Previous");
         JButton nextButton = new JButton("Next");
-
-        prevButton.addActionListener(new ActionListener() {
+        JButton panel2Button = new JButton("Panel 2");
+        prevButton.addActionListener(e -> cardLayout.previous(mainPanel));
+        panel1Button.addActionListener(new ActionListener() {
             @Override
             public void actionPerformed(ActionEvent e) {
-                cardLayout.previous(mainPanel);
+                cardLayout.show(mainPanel, "Panel1");
             }
         });
 
@@ -50,10 +52,18 @@ public class NavigationExample {
                 cardLayout.next(mainPanel);
             }
         });
+        panel2Button.addActionListener(new ActionListener() {
+            @Override
+            public void actionPerformed(ActionEvent e) {
+                cardLayout.show(mainPanel, "Panel2");
+            }
+        });
 
         JPanel buttonPanel = new JPanel();
         buttonPanel.add(prevButton);
         buttonPanel.add(nextButton);
+        buttonPanel.add(panel1Button);
+        buttonPanel.add(panel2Button);
 
         frame.getContentPane().add(mainPanel, BorderLayout.CENTER);
         frame.getContentPane().add(buttonPanel, BorderLayout.SOUTH);

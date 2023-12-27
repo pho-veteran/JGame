@@ -22,6 +22,7 @@ public class registerMenu extends JFrame {
     private JPasswordField confirmPasswordField;
     private JLabel confirmPassword;
     private JButton exitButton;
+    private JButton dupe;
     private ImageIcon imageIcon = new ImageIcon(new ImageIcon("src/icon/account/account.png").getImage().getScaledInstance(64, 64, Image.SCALE_SMOOTH));
     public registerMenu() {
         this.initFrame();
@@ -75,7 +76,7 @@ public class registerMenu extends JFrame {
         this.setTitle("Sign Up");
         this.setContentPane(mainPanel);
         this.setDefaultCloseOperation(JFrame.EXIT_ON_CLOSE);
-        this.setSize(320, 370);
+        this.setSize(340, 370);
         this.setLocationRelativeTo(null);
         this.setResizable(false);
         this.setUndecorated(true);

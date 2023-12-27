@@ -21,6 +21,7 @@ public class loginMenu extends JFrame {
     private JPasswordField passwordField;
     private JLabel logo;
     private JButton exitButton;
+    private JButton dupe;
     private ImageIcon imageIcon = new ImageIcon(new ImageIcon("src/icon/account/account.png").getImage().getScaledInstance(64, 64, Image.SCALE_SMOOTH));
     public loginMenu() {
         this.initFrame();
@@ -82,7 +83,7 @@ public class loginMenu extends JFrame {
         this.setTitle("Login");
         this.setContentPane(mainPanel);
         this.setDefaultCloseOperation(JFrame.EXIT_ON_CLOSE);
-        this.setSize(320, 320);
+        this.setSize(340, 320);
         this.setLocationRelativeTo(null);
         this.setResizable(false);
         this.setUndecorated(true);
