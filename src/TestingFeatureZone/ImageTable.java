@@ -1,85 +1,78 @@
 package TestingFeatureZone;
 
-import java.awt.BorderLayout;
-import java.awt.Component;
-import java.awt.Dimension;
-import java.awt.Image;
-import java.awt.image.BufferedImage;
-import java.io.File;
-import java.io.IOException;
-import javax.imageio.ImageIO;
-import javax.swing.ImageIcon;
-import javax.swing.JFrame;
-import javax.swing.JLabel;
-import javax.swing.JScrollPane;
-import javax.swing.JTable;
+import javax.swing.*;
 import javax.swing.table.DefaultTableCellRenderer;
 import javax.swing.table.DefaultTableModel;
+import java.awt.*;
 
 public class ImageTable extends JFrame {
-    private static final long serialVersionUID = 1L;
     private JTable table;
-    private JScrollPane scrollPane;
-    private DefaultTableModel model;
+    private JPanel mainPanel = new JPanel();
 
     public ImageTable() {
-        setTitle("Image Table");
+        this.setContentPane(mainPanel);
+        mainPanel.setLayout(new BorderLayout());
         setDefaultCloseOperation(JFrame.EXIT_ON_CLOSE);
-        setSize(800, 600);
-        setLocationRelativeTo(null);
+        setSize(400, 300);
 
-        // Create a table model with two columns
-        model = new DefaultTableModel(new Object[]{"Image", "Description"}, 0) {
-            private static final long serialVersionUID = 1L;
+        this.initTable();
+        setTableColumnImage();
+        mainPanel.add(new JScrollPane(table), BorderLayout.CENTER);
+    }
 
-            @Override
-            public Class<?> getColumnClass(int columnIndex) {
-                return columnIndex == 0 ? ImageIcon.class : String.class;
-            }
+    public void initTable() {
+        String[] columnNames = {"Name", "Image"};
+        Object[][] data = {
+                {"1", new ImageIcon("src/icon/logo.png")},
+                {"2", new ImageIcon("src/icon/dashboard/user/libraryLogo.png")},
+                {"3", new ImageIcon("src/icon/dashboard/user/storeLogo.png")},
+                {"4", new ImageIcon("src/icon/dashboard/user/walletLogo.png")},
+                {"5", new ImageIcon("src/icon/dashboard/user/libraryLogo.png")}
         };
 
-        // Add rows to the table model
-        try {
-            BufferedImage image1 = ImageIO.read(new File("image1.jpg"));
-            BufferedImage image2 = ImageIO.read(new File("image2.jpg"));
-            BufferedImage image3 = ImageIO.read(new File("image3.jpg"));
+        table = new JTable(new DefaultTableModel(data, columnNames)) {
+            private static final long serialVersionUID = 1L;
+            public boolean isCellEditable(int row, int column) {
+                return false;
+            };
+        };
+        table.setAutoResizeMode(JTable.AUTO_RESIZE_ALL_COLUMNS);
+        table.setRowHeight(512);
+        table.setShowGrid(false);
+        table.setBackground(Color.decode("#303952"));
 
-            model.addRow(new Object[]{new ImageIcon(image1.getScaledInstance(100, 100, Image.SCALE_SMOOTH)), "Image 1"});
-            model.addRow(new Object[]{new ImageIcon(image2.getScaledInstance(100, 100, Image.SCALE_SMOOTH)), "Image 2"});
-            model.addRow(new Object[]{new ImageIcon(image3.getScaledInstance(100, 100, Image.SCALE_SMOOTH)), "Image 3"});
-        } catch (IOException e) {
-            e.printStackTrace();
+    }
+
+    // Set table column renderer as image
+    public void setTableColumnImage() {
+        table.getColumnModel().getColumn(1).setCellRenderer(new ImageRenderer());
+    }
+
+
+    // Image renderer
+    public class ImageRenderer extends DefaultTableCellRenderer {
+        public ImageRenderer() {
+            super();
+            setHorizontalAlignment(JLabel.CENTER); // Center the image in the cell
         }
-
-        // Create a table with the model
-        table = new JTable(model);
-        table.setRowHeight(100);
-        table.getColumnModel().getColumn(0).setCellRenderer(new ImageRenderer());
-
-        // Add the table to a scroll pane
-        scrollPane = new JScrollPane(table);
-        scrollPane.setPreferredSize(new Dimension(800, 600));
-
-        // Add the scroll pane to the frame
-        add(scrollPane, BorderLayout.CENTER);
-
-        setVisible(true);
+        @Override
+        protected void setValue(Object value) {
+            if (value instanceof ImageIcon) {
+                if (value != null) {
+                    ImageIcon imageIcon = (ImageIcon) value;
+                    setIcon(imageIcon);
+                    setText("");
+                } else {
+                    setIcon(null);
+                    setText("");
+                }
+            } else {
+                super.setValue(value);
+            }
+        }
     }
 
     public static void main(String[] args) {
-        new ImageTable();
-    }
-
-    // Custom cell renderer for displaying images
-    private class ImageRenderer extends DefaultTableCellRenderer {
-        private static final long serialVersionUID = 1L;
-
-        @Override
-        public Component getTableCellRendererComponent(JTable table, Object value, boolean isSelected, boolean hasFocus, int row, int column) {
-            JLabel label = new JLabel();
-            label.setIcon((ImageIcon) value);
-            return label;
-        }
+        SwingUtilities.invokeLater(() -> new ImageTable().setVisible(true));
     }
 }
-

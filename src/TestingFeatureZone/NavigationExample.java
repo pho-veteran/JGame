@@ -42,6 +42,8 @@ public class NavigationExample {
         panel1Button.addActionListener(new ActionListener() {
             @Override
             public void actionPerformed(ActionEvent e) {
+                //Joptinepane panel 1
+                JOptionPane.showMessageDialog(null, "JPanel 1", "Success", JOptionPane.INFORMATION_MESSAGE);
                 cardLayout.show(mainPanel, "Panel1");
             }
         });

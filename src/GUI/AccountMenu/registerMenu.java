@@ -41,7 +41,7 @@ public class registerMenu extends JFrame {
             @Override
             public void actionPerformed(ActionEvent e) {
                 if (!usernameField.getText().isEmpty() && passwordField.getText().equals(confirmPasswordField.getText())
-                    && !passwordField.getText().isEmpty() && !confirmPasswordField.getText().isEmpty()) {
+                        && !passwordField.getText().isEmpty() && !confirmPasswordField.getText().isEmpty()) {
                     Integer status = null;
 
                     try {
