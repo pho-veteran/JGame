@@ -126,7 +126,7 @@ public class userDashboard extends JFrame {
         this.setTitle("User Dashboard");
         this.setContentPane(mainPanel);
         this.setDefaultCloseOperation(JFrame.EXIT_ON_CLOSE);
-        this.setSize(1200, 750);
+        this.setSize(1300, 850);
         this.setLocationRelativeTo(null);
         this.setUndecorated(true);
         logoLabel.setIcon(imageIcon);

@@ -83,7 +83,7 @@ public class loginMenu extends JFrame {
         this.setTitle("Login");
         this.setContentPane(mainPanel);
         this.setDefaultCloseOperation(JFrame.EXIT_ON_CLOSE);
-        this.setSize(340, 320);
+        this.setSize(420, 430);
         this.setLocationRelativeTo(null);
         this.setResizable(false);
         this.setUndecorated(true);

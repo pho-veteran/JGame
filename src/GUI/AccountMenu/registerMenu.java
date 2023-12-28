@@ -40,7 +40,8 @@ public class registerMenu extends JFrame {
         signUpButton.addActionListener(new ActionListener() {
             @Override
             public void actionPerformed(ActionEvent e) {
-                if (!usernameField.getText().isEmpty() && passwordField.getText().equals(confirmPasswordField.getText())) {
+                if (!usernameField.getText().isEmpty() && passwordField.getText().equals(confirmPasswordField.getText())
+                    && !passwordField.getText().isEmpty() && !confirmPasswordField.getText().isEmpty()) {
                     Integer status = null;
 
                     try {
@@ -76,7 +77,7 @@ public class registerMenu extends JFrame {
         this.setTitle("Sign Up");
         this.setContentPane(mainPanel);
         this.setDefaultCloseOperation(JFrame.EXIT_ON_CLOSE);
-        this.setSize(340, 370);
+        this.setSize(420, 520);
         this.setLocationRelativeTo(null);
         this.setResizable(false);
         this.setUndecorated(true);

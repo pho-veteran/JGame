@@ -9,7 +9,7 @@
       <background color="-13616814"/>
     </properties>
     <border type="line">
-      <color color="-3421237"/>
+      <color color="-13421773"/>
     </border>
     <children>
       <grid id="33796" binding="TitlePanel" layout-manager="GridLayoutManager" row-count="3" column-count="1" same-size-horizontally="false" same-size-vertically="false" hgap="-1" vgap="3">
