@@ -1,61 +1,516 @@
 <?xml version="1.0" encoding="UTF-8"?>
 <form xmlns="http://www.intellij.com/uidesigner/form/" version="1" bind-to-class="GUI.Dashboard.User.gameStorePanel">
-  <grid id="27dc6" binding="mainPanel" layout-manager="GridLayoutManager" row-count="3" column-count="1" same-size-horizontally="false" same-size-vertically="false" hgap="-1" vgap="-1">
+  <grid id="27dc6" binding="mainPanel" layout-manager="GridLayoutManager" row-count="3" column-count="1" same-size-horizontally="false" same-size-vertically="false" hgap="0" vgap="0">
     <margin top="0" left="0" bottom="0" right="0"/>
     <constraints>
-      <xy x="20" y="20" width="698" height="400"/>
+      <xy x="20" y="20" width="798" height="1291"/>
     </constraints>
     <properties/>
     <border type="none"/>
     <children>
-      <grid id="20365" binding="bestSeller" layout-manager="GridLayoutManager" row-count="1" column-count="1" same-size-horizontally="false" same-size-vertically="false" hgap="-1" vgap="-1">
-        <margin top="0" left="0" bottom="0" right="0"/>
-        <constraints>
-          <grid row="0" column="0" row-span="1" col-span="1" vsize-policy="3" hsize-policy="3" anchor="0" fill="3" indent="0" use-parent-layout="false"/>
-        </constraints>
-        <properties/>
-        <border type="none"/>
-        <children>
-          <component id="cf42d" class="javax.swing.JLabel" binding="header">
-            <constraints>
-              <grid row="0" column="0" row-span="1" col-span="1" vsize-policy="0" hsize-policy="0" anchor="0" fill="0" indent="0" use-parent-layout="false"/>
-            </constraints>
-            <properties>
-              <text value="Label"/>
-            </properties>
-          </component>
-        </children>
-      </grid>
-      <grid id="16c40" binding="gameListPanel" layout-manager="GridLayoutManager" row-count="2" column-count="1" same-size-horizontally="false" same-size-vertically="false" hgap="-1" vgap="-1">
+      <grid id="16c40" binding="placeHolderPanel_2" layout-manager="GridLayoutManager" row-count="5" column-count="2" same-size-horizontally="false" same-size-vertically="false" hgap="0" vgap="0">
         <margin top="0" left="0" bottom="0" right="0"/>
         <constraints>
           <grid row="2" column="0" row-span="1" col-span="1" vsize-policy="3" hsize-policy="3" anchor="0" fill="3" indent="0" use-parent-layout="false"/>
         </constraints>
-        <properties/>
+        <properties>
+          <background color="-15065036"/>
+        </properties>
         <border type="none"/>
         <children>
-          <component id="f14d" class="javax.swing.JButton" binding="button1" default-binding="true">
+          <component id="89a11" class="javax.swing.JLabel" binding="browsingHeader">
             <constraints>
-              <grid row="0" column="0" row-span="1" col-span="1" vsize-policy="7" hsize-policy="3" anchor="0" fill="3" indent="0" use-parent-layout="false">
-                <minimum-size width="100" height="-1"/>
+              <grid row="1" column="0" row-span="1" col-span="1" vsize-policy="0" hsize-policy="0" anchor="8" fill="0" indent="1" use-parent-layout="false"/>
+            </constraints>
+            <properties>
+              <font name="Inter Semi Bold" size="28" style="1"/>
+              <foreground color="-12729901"/>
+              <text value="Browsing"/>
+            </properties>
+          </component>
+          <scrollpane id="4e581" binding="gameScrollPane" custom-create="true">
+            <constraints>
+              <grid row="3" column="0" row-span="1" col-span="1" vsize-policy="3" hsize-policy="3" anchor="0" fill="3" indent="3" use-parent-layout="false"/>
+            </constraints>
+            <properties/>
+            <border type="none"/>
+            <children>
+              <component id="793f" class="javax.swing.JTable" binding="gameTable" custom-create="true">
+                <constraints/>
+                <properties>
+                  <surrendersFocusOnKeystroke value="false"/>
+                </properties>
+              </component>
+            </children>
+          </scrollpane>
+          <grid id="6587f" binding="toolBar" layout-manager="GridLayoutManager" row-count="4" column-count="1" same-size-horizontally="false" same-size-vertically="false" hgap="0" vgap="20">
+            <margin top="0" left="0" bottom="0" right="0"/>
+            <constraints>
+              <grid row="3" column="1" row-span="1" col-span="1" vsize-policy="3" hsize-policy="0" anchor="0" fill="2" indent="0" use-parent-layout="false">
+                <minimum-size width="400" height="-1"/>
               </grid>
             </constraints>
             <properties>
-              <text value="Button"/>
+              <background color="-15065036"/>
             </properties>
-          </component>
-          <vspacer id="7643e">
+            <border type="none"/>
+            <children>
+              <grid id="461b3" binding="searchPanel" layout-manager="GridLayoutManager" row-count="5" column-count="2" same-size-horizontally="false" same-size-vertically="false" hgap="-1" vgap="10">
+                <margin top="0" left="0" bottom="0" right="0"/>
+                <constraints>
+                  <grid row="0" column="0" row-span="1" col-span="1" vsize-policy="0" hsize-policy="3" anchor="1" fill="1" indent="0" use-parent-layout="false"/>
+                </constraints>
+                <properties>
+                  <background color="-15065036"/>
+                </properties>
+                <border type="none"/>
+                <children>
+                  <component id="2e7de" class="javax.swing.JButton" binding="searchPanelHide">
+                    <constraints>
+                      <grid row="0" column="1" row-span="1" col-span="1" vsize-policy="0" hsize-policy="0" anchor="5" fill="0" indent="0" use-parent-layout="false">
+                        <minimum-size width="-1" height="10"/>
+                      </grid>
+                    </constraints>
+                    <properties>
+                      <background color="-10657948"/>
+                      <borderPainted value="false"/>
+                      <contentAreaFilled value="false"/>
+                      <focusPainted value="false"/>
+                      <font name="Inter" size="24" style="1"/>
+                      <foreground color="-197380"/>
+                      <horizontalAlignment value="4"/>
+                      <horizontalTextPosition value="0"/>
+                      <icon value="icon/dashboard/user/direction_up_32pixel.png"/>
+                      <text value=""/>
+                    </properties>
+                  </component>
+                  <component id="39338" class="javax.swing.JTextField" binding="searchBox">
+                    <constraints>
+                      <grid row="1" column="1" row-span="1" col-span="1" vsize-policy="0" hsize-policy="2" anchor="1" fill="0" indent="1" use-parent-layout="false">
+                        <preferred-size width="160" height="30"/>
+                      </grid>
+                    </constraints>
+                    <properties>
+                      <background color="-197380"/>
+                      <focusable value="true"/>
+                      <font name="Inter" size="14" style="0"/>
+                      <foreground color="-13421773"/>
+                      <opaque value="true"/>
+                      <requestFocusEnabled value="true"/>
+                      <verifyInputWhenFocusTarget value="true"/>
+                    </properties>
+                  </component>
+                  <component id="5027b" class="javax.swing.JLabel" binding="seachByNameLabel">
+                    <constraints>
+                      <grid row="1" column="0" row-span="1" col-span="1" vsize-policy="0" hsize-policy="0" anchor="4" fill="0" indent="0" use-parent-layout="false">
+                        <preferred-size width="130" height="23"/>
+                      </grid>
+                    </constraints>
+                    <properties>
+                      <alignmentX value="0.5"/>
+                      <enabled value="true"/>
+                      <font name="Inter" size="18" style="1"/>
+                      <foreground color="-1"/>
+                      <labelFor value="39338"/>
+                      <text value="By Name"/>
+                    </properties>
+                  </component>
+                  <component id="e5896" class="javax.swing.JLabel" binding="searchByGenreLabel">
+                    <constraints>
+                      <grid row="2" column="0" row-span="1" col-span="1" vsize-policy="0" hsize-policy="0" anchor="4" fill="0" indent="0" use-parent-layout="false">
+                        <preferred-size width="130" height="23"/>
+                      </grid>
+                    </constraints>
+                    <properties>
+                      <alignmentX value="0.5"/>
+                      <enabled value="true"/>
+                      <font name="Inter" size="18" style="1"/>
+                      <foreground color="-1"/>
+                      <labelFor value="a44d7"/>
+                      <text value="By Genre"/>
+                    </properties>
+                  </component>
+                  <component id="a44d7" class="javax.swing.JComboBox" binding="byGenreComboBox" default-binding="true">
+                    <constraints>
+                      <grid row="2" column="1" row-span="1" col-span="1" vsize-policy="0" hsize-policy="2" anchor="1" fill="0" indent="1" use-parent-layout="false">
+                        <preferred-size width="160" height="30"/>
+                      </grid>
+                    </constraints>
+                    <properties>
+                      <background color="-197380"/>
+                      <editable value="false"/>
+                      <font name="Inter" size="16" style="0"/>
+                      <foreground color="-13421773"/>
+                    </properties>
+                  </component>
+                  <component id="c02e3" class="javax.swing.JLabel" binding="searchHeader_1">
+                    <constraints>
+                      <grid row="0" column="0" row-span="1" col-span="1" vsize-policy="0" hsize-policy="0" anchor="8" fill="0" indent="2" use-parent-layout="false">
+                        <preferred-size width="130" height="25"/>
+                      </grid>
+                    </constraints>
+                    <properties>
+                      <font name="Inter Semi Bold" size="22" style="1"/>
+                      <foreground color="-12729901"/>
+                      <text value="Searching"/>
+                    </properties>
+                  </component>
+                  <component id="5e5c4" class="javax.swing.JButton" binding="confirmSearchButton">
+                    <constraints>
+                      <grid row="4" column="0" row-span="1" col-span="2" vsize-policy="0" hsize-policy="0" anchor="0" fill="0" indent="0" use-parent-layout="false">
+                        <minimum-size width="290" height="25"/>
+                      </grid>
+                    </constraints>
+                    <properties>
+                      <background color="-3092272"/>
+                      <borderPainted value="true"/>
+                      <focusPainted value="false"/>
+                      <font name="Inter" size="17" style="1"/>
+                      <text value="Confirm"/>
+                    </properties>
+                  </component>
+                  <vspacer id="9a1e8">
+                    <constraints>
+                      <grid row="3" column="0" row-span="1" col-span="2" vsize-policy="6" hsize-policy="1" anchor="0" fill="0" indent="0" use-parent-layout="false">
+                        <preferred-size width="-1" height="10"/>
+                      </grid>
+                    </constraints>
+                  </vspacer>
+                </children>
+              </grid>
+              <grid id="fed38" binding="gameInformation" layout-manager="GridLayoutManager" row-count="2" column-count="1" same-size-horizontally="false" same-size-vertically="false" hgap="-1" vgap="-1">
+                <margin top="0" left="0" bottom="0" right="0"/>
+                <constraints>
+                  <grid row="3" column="0" row-span="1" col-span="1" vsize-policy="3" hsize-policy="2" anchor="0" fill="1" indent="0" use-parent-layout="false"/>
+                </constraints>
+                <properties>
+                  <background color="-15065036"/>
+                </properties>
+                <border type="none"/>
+                <children>
+                  <component id="cbe84" class="javax.swing.JLabel" binding="gameInfo_Logo">
+                    <constraints>
+                      <grid row="0" column="0" row-span="1" col-span="1" vsize-policy="0" hsize-policy="0" anchor="0" fill="0" indent="0" use-parent-layout="false"/>
+                    </constraints>
+                    <properties>
+                      <icon value="icon/game/lies_of_p.png"/>
+                      <text value=""/>
+                    </properties>
+                  </component>
+                  <grid id="69f2b" binding="infoPanel" layout-manager="GridLayoutManager" row-count="3" column-count="1" same-size-horizontally="false" same-size-vertically="false" hgap="-1" vgap="-1">
+                    <margin top="0" left="0" bottom="0" right="0"/>
+                    <constraints>
+                      <grid row="1" column="0" row-span="1" col-span="1" vsize-policy="3" hsize-policy="3" anchor="0" fill="1" indent="0" use-parent-layout="false"/>
+                    </constraints>
+                    <properties>
+                      <background color="-15065036"/>
+                    </properties>
+                    <border type="none"/>
+                    <children>
+                      <component id="b2196" class="javax.swing.JLabel" binding="gameInfo_Name">
+                        <constraints>
+                          <grid row="0" column="0" row-span="1" col-span="1" vsize-policy="0" hsize-policy="0" anchor="0" fill="0" indent="0" use-parent-layout="false"/>
+                        </constraints>
+                        <properties>
+                          <font name="Inter Semi Bold" size="20"/>
+                          <foreground color="-197380"/>
+                          <text value="Lies Of P"/>
+                        </properties>
+                      </component>
+                      <component id="1df8b" class="javax.swing.JLabel" binding="gameInfo_Genre">
+                        <constraints>
+                          <grid row="1" column="0" row-span="1" col-span="1" vsize-policy="0" hsize-policy="0" anchor="0" fill="0" indent="0" use-parent-layout="false"/>
+                        </constraints>
+                        <properties>
+                          <font name="Inter" size="16" style="1"/>
+                          <foreground color="-197380"/>
+                          <text value="Genres: Action"/>
+                        </properties>
+                      </component>
+                      <component id="b3190" class="javax.swing.JButton" binding="gameInfo_Price_Button">
+                        <constraints>
+                          <grid row="2" column="0" row-span="1" col-span="1" vsize-policy="0" hsize-policy="3" anchor="0" fill="0" indent="0" use-parent-layout="false">
+                            <minimum-size width="220" height="30"/>
+                          </grid>
+                        </constraints>
+                        <properties>
+                          <background color="-10964904"/>
+                          <borderPainted value="true"/>
+                          <focusPainted value="false"/>
+                          <foreground color="-197380"/>
+                          <text value=""/>
+                        </properties>
+                      </component>
+                    </children>
+                  </grid>
+                </children>
+              </grid>
+              <grid id="389af" binding="searchPanel_2" layout-manager="GridLayoutManager" row-count="1" column-count="3" same-size-horizontally="false" same-size-vertically="false" hgap="-1" vgap="-1">
+                <margin top="0" left="0" bottom="0" right="0"/>
+                <constraints>
+                  <grid row="1" column="0" row-span="1" col-span="1" vsize-policy="0" hsize-policy="3" anchor="1" fill="1" indent="0" use-parent-layout="false"/>
+                </constraints>
+                <properties>
+                  <background color="-15065036"/>
+                </properties>
+                <border type="none"/>
+                <children>
+                  <component id="66f1c" class="javax.swing.JButton" binding="searchPanelShow">
+                    <constraints>
+                      <grid row="0" column="1" row-span="1" col-span="2" vsize-policy="0" hsize-policy="0" anchor="5" fill="0" indent="0" use-parent-layout="false">
+                        <minimum-size width="-1" height="10"/>
+                      </grid>
+                    </constraints>
+                    <properties>
+                      <background color="-10657948"/>
+                      <borderPainted value="false"/>
+                      <contentAreaFilled value="false"/>
+                      <focusPainted value="false"/>
+                      <font name="Inter" size="24" style="1"/>
+                      <foreground color="-197380"/>
+                      <horizontalAlignment value="4"/>
+                      <horizontalTextPosition value="0"/>
+                      <icon value="icon/dashboard/user/direction_down_32pixel.png"/>
+                      <text value=""/>
+                    </properties>
+                  </component>
+                  <component id="eb3b3" class="javax.swing.JLabel" binding="searchHeader">
+                    <constraints>
+                      <grid row="0" column="0" row-span="1" col-span="1" vsize-policy="0" hsize-policy="0" anchor="8" fill="0" indent="2" use-parent-layout="false"/>
+                    </constraints>
+                    <properties>
+                      <font name="Inter Semi Bold" size="22" style="1"/>
+                      <foreground color="-12729901"/>
+                      <text value="Searching"/>
+                    </properties>
+                  </component>
+                </children>
+              </grid>
+              <component id="890ca" class="javax.swing.JLabel" binding="gameInfoHeader">
+                <constraints>
+                  <grid row="2" column="0" row-span="1" col-span="1" vsize-policy="0" hsize-policy="0" anchor="9" fill="0" indent="2" use-parent-layout="false"/>
+                </constraints>
+                <properties>
+                  <font name="Inter Semi Bold" size="22" style="1"/>
+                  <foreground color="-12729901"/>
+                  <text value="Information"/>
+                </properties>
+              </component>
+            </children>
+          </grid>
+          <vspacer id="5048d">
             <constraints>
-              <grid row="1" column="0" row-span="1" col-span="1" vsize-policy="6" hsize-policy="1" anchor="0" fill="2" indent="0" use-parent-layout="false"/>
+              <grid row="0" column="0" row-span="1" col-span="1" vsize-policy="0" hsize-policy="1" anchor="0" fill="0" indent="0" use-parent-layout="false">
+                <minimum-size width="-1" height="5"/>
+              </grid>
+            </constraints>
+          </vspacer>
+          <vspacer id="f7c06">
+            <constraints>
+              <grid row="2" column="0" row-span="1" col-span="1" vsize-policy="0" hsize-policy="1" anchor="0" fill="0" indent="0" use-parent-layout="false">
+                <minimum-size width="-1" height="10"/>
+              </grid>
+            </constraints>
+          </vspacer>
+          <vspacer id="6a474">
+            <constraints>
+              <grid row="4" column="0" row-span="1" col-span="1" vsize-policy="0" hsize-policy="1" anchor="2" fill="0" indent="0" use-parent-layout="false">
+                <minimum-size width="-1" height="12"/>
+              </grid>
             </constraints>
           </vspacer>
         </children>
       </grid>
-      <vspacer id="bae31">
+      <grid id="20365" binding="placeHolderPanel_1" layout-manager="GridLayoutManager" row-count="5" column-count="6" same-size-horizontally="false" same-size-vertically="false" hgap="10" vgap="15">
+        <margin top="0" left="0" bottom="0" right="0"/>
         <constraints>
-          <grid row="1" column="0" row-span="1" col-span="1" vsize-policy="6" hsize-policy="1" anchor="0" fill="2" indent="0" use-parent-layout="false"/>
+          <grid row="0" column="0" row-span="1" col-span="1" vsize-policy="0" hsize-policy="7" anchor="1" fill="1" indent="0" use-parent-layout="false"/>
         </constraints>
-      </vspacer>
+        <properties>
+          <background color="-10852491"/>
+        </properties>
+        <border type="none"/>
+        <children>
+          <component id="8341e" class="javax.swing.JLabel" binding="topGameHeader">
+            <constraints>
+              <grid row="1" column="0" row-span="1" col-span="5" vsize-policy="0" hsize-policy="0" anchor="8" fill="0" indent="1" use-parent-layout="false"/>
+            </constraints>
+            <properties>
+              <font name="Inter Semi Bold" size="28" style="1"/>
+              <foreground color="-12729901"/>
+              <text value="Popular Games"/>
+            </properties>
+          </component>
+          <component id="98a37" class="javax.swing.JLabel" binding="gameLogo_1">
+            <constraints>
+              <grid row="2" column="0" row-span="1" col-span="1" vsize-policy="0" hsize-policy="0" anchor="0" fill="0" indent="0" use-parent-layout="false"/>
+            </constraints>
+            <properties>
+              <icon value="icon/game/lies_of_p.png"/>
+              <text value=""/>
+            </properties>
+          </component>
+          <component id="28ece" class="javax.swing.JLabel" binding="gameDesc_1">
+            <constraints>
+              <grid row="3" column="0" row-span="1" col-span="1" vsize-policy="0" hsize-policy="0" anchor="0" fill="0" indent="0" use-parent-layout="false"/>
+            </constraints>
+            <properties>
+              <font name="Calibri" size="20" style="1"/>
+              <foreground color="-197380"/>
+              <text value="Lies of P"/>
+            </properties>
+          </component>
+          <component id="4214c" class="javax.swing.JLabel" binding="gameLogo_2">
+            <constraints>
+              <grid row="2" column="1" row-span="1" col-span="1" vsize-policy="0" hsize-policy="0" anchor="0" fill="0" indent="0" use-parent-layout="false"/>
+            </constraints>
+            <properties>
+              <icon value="icon/game/lies_of_p.png"/>
+              <text value=""/>
+            </properties>
+          </component>
+          <component id="5d6b1" class="javax.swing.JLabel" binding="gameLogo_3">
+            <constraints>
+              <grid row="2" column="2" row-span="1" col-span="1" vsize-policy="0" hsize-policy="0" anchor="0" fill="0" indent="0" use-parent-layout="false"/>
+            </constraints>
+            <properties>
+              <icon value="icon/game/lies_of_p.png"/>
+              <text value=""/>
+            </properties>
+          </component>
+          <component id="f2e26" class="javax.swing.JLabel" binding="gameLogo_4">
+            <constraints>
+              <grid row="2" column="3" row-span="1" col-span="1" vsize-policy="0" hsize-policy="0" anchor="0" fill="0" indent="0" use-parent-layout="false"/>
+            </constraints>
+            <properties>
+              <icon value="icon/game/lies_of_p.png"/>
+              <text value=""/>
+            </properties>
+          </component>
+          <component id="a09ca" class="javax.swing.JLabel" binding="gameLogo_5">
+            <constraints>
+              <grid row="2" column="4" row-span="1" col-span="2" vsize-policy="0" hsize-policy="0" anchor="0" fill="0" indent="0" use-parent-layout="false"/>
+            </constraints>
+            <properties>
+              <icon value="icon/game/lies_of_p.png"/>
+              <text value=""/>
+            </properties>
+          </component>
+          <component id="1e137" class="javax.swing.JLabel" binding="gameDesc_2">
+            <constraints>
+              <grid row="3" column="1" row-span="1" col-span="1" vsize-policy="0" hsize-policy="0" anchor="0" fill="0" indent="0" use-parent-layout="false"/>
+            </constraints>
+            <properties>
+              <font name="Calibri" size="20" style="1"/>
+              <foreground color="-197380"/>
+              <text value="Lies of P"/>
+            </properties>
+          </component>
+          <component id="71e89" class="javax.swing.JLabel" binding="gameDesc_3">
+            <constraints>
+              <grid row="3" column="2" row-span="1" col-span="1" vsize-policy="0" hsize-policy="0" anchor="0" fill="0" indent="0" use-parent-layout="false"/>
+            </constraints>
+            <properties>
+              <font name="Calibri" size="20" style="1"/>
+              <foreground color="-197380"/>
+              <text value="Lies of P"/>
+            </properties>
+          </component>
+          <component id="c6422" class="javax.swing.JLabel" binding="gameDesc_4">
+            <constraints>
+              <grid row="3" column="3" row-span="1" col-span="1" vsize-policy="0" hsize-policy="0" anchor="0" fill="0" indent="0" use-parent-layout="false"/>
+            </constraints>
+            <properties>
+              <font name="Calibri" size="20" style="1"/>
+              <foreground color="-197380"/>
+              <text value="Lies of P"/>
+            </properties>
+          </component>
+          <component id="1bee6" class="javax.swing.JLabel" binding="gameDesc_5">
+            <constraints>
+              <grid row="3" column="4" row-span="1" col-span="2" vsize-policy="0" hsize-policy="0" anchor="0" fill="0" indent="0" use-parent-layout="false"/>
+            </constraints>
+            <properties>
+              <font name="Calibri" size="20" style="1"/>
+              <foreground color="-197380"/>
+              <text value="Lies of P"/>
+            </properties>
+          </component>
+          <component id="62919" class="javax.swing.JButton" binding="collapseToggle">
+            <constraints>
+              <grid row="1" column="5" row-span="1" col-span="1" vsize-policy="0" hsize-policy="0" anchor="5" fill="0" indent="0" use-parent-layout="false">
+                <minimum-size width="-1" height="10"/>
+              </grid>
+            </constraints>
+            <properties>
+              <background color="-10657948"/>
+              <borderPainted value="false"/>
+              <contentAreaFilled value="false"/>
+              <focusPainted value="false"/>
+              <font name="Inter" size="24" style="1"/>
+              <foreground color="-197380"/>
+              <horizontalAlignment value="4"/>
+              <horizontalTextPosition value="0"/>
+              <icon value="icon/dashboard/user/direction_up_32pixel.png"/>
+              <text value=""/>
+            </properties>
+          </component>
+          <hspacer id="ef09a">
+            <constraints>
+              <grid row="0" column="0" row-span="1" col-span="6" vsize-policy="1" hsize-policy="6" anchor="0" fill="1" indent="0" use-parent-layout="false"/>
+            </constraints>
+          </hspacer>
+          <vspacer id="647c3">
+            <constraints>
+              <grid row="4" column="0" row-span="1" col-span="6" vsize-policy="6" hsize-policy="1" anchor="0" fill="0" indent="0" use-parent-layout="false">
+                <minimum-size width="-1" height="10"/>
+              </grid>
+            </constraints>
+          </vspacer>
+        </children>
+      </grid>
+      <grid id="b130" binding="collapsePanel" layout-manager="GridLayoutManager" row-count="1" column-count="2" same-size-horizontally="false" same-size-vertically="false" hgap="-1" vgap="-1">
+        <margin top="0" left="0" bottom="0" right="0"/>
+        <constraints>
+          <grid row="1" column="0" row-span="1" col-span="1" vsize-policy="0" hsize-policy="7" anchor="0" fill="3" indent="0" use-parent-layout="false"/>
+        </constraints>
+        <properties>
+          <background color="-10852491"/>
+          <font name="Inter" size="18" style="0"/>
+        </properties>
+        <border type="none"/>
+        <children>
+          <component id="54a65" class="javax.swing.JButton" binding="collapseToggle_2">
+            <constraints>
+              <grid row="0" column="1" row-span="1" col-span="1" vsize-policy="0" hsize-policy="0" anchor="5" fill="0" indent="0" use-parent-layout="false">
+                <minimum-size width="-1" height="10"/>
+              </grid>
+            </constraints>
+            <properties>
+              <background color="-10657948"/>
+              <borderPainted value="false"/>
+              <contentAreaFilled value="false"/>
+              <focusPainted value="false"/>
+              <font name="Inter" size="24" style="1"/>
+              <foreground color="-197380"/>
+              <horizontalAlignment value="4"/>
+              <horizontalTextPosition value="0"/>
+              <icon value="icon/dashboard/user/direction_down_32pixel.png"/>
+              <text value=""/>
+            </properties>
+          </component>
+          <component id="bd724" class="javax.swing.JLabel" binding="topGameHeader_2">
+            <constraints>
+              <grid row="0" column="0" row-span="1" col-span="1" vsize-policy="0" hsize-policy="0" anchor="8" fill="0" indent="1" use-parent-layout="false"/>
+            </constraints>
+            <properties>
+              <font name="Inter Semi Bold" size="28" style="1"/>
+              <foreground color="-12729901"/>
+              <text value="Popular Games"/>
+            </properties>
+          </component>
+        </children>
+      </grid>
     </children>
   </grid>
 </form>

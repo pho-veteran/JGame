@@ -31,14 +31,14 @@ public class userDashboard extends JFrame {
     private JButton profile;
     private Border currentBorder;
     private Account account;
-    private ImageIcon imageIcon = new ImageIcon(new ImageIcon("src/icon/logo.png").getImage().getScaledInstance(200, 200, Image.SCALE_SMOOTH));
+    private ImageIcon imageIcon = new ImageIcon(new ImageIcon("src/icon/logo.png").getImage().getScaledInstance(220, 220, Image.SCALE_SMOOTH));
     private CardLayout cardLayout = new CardLayout();
     private JPanel mainContentPanel;
     public userDashboard(Account account) {
         this.account = account;
         this.initFrame();
         this.initListeners();
-        this.initAccount();
+        this.initAccountInfomation();
         exitButton.addActionListener(new ActionListener() {
             @Override
             public void actionPerformed(ActionEvent e) {
@@ -96,7 +96,7 @@ public class userDashboard extends JFrame {
             }
         });
     }
-    public void initAccount() {
+    public void initAccountInfomation() {
         AccountService accountService = new AccountService();
 
         String username = account.getUsername();
@@ -108,7 +108,7 @@ public class userDashboard extends JFrame {
         }
 
         if (balance != null) {
-            balanceLabel.setText(balance + "VND");
+            balanceLabel.setText(balance + " VND");
         }
 
         if (primeStatus != null) {
@@ -126,7 +126,7 @@ public class userDashboard extends JFrame {
         this.setTitle("User Dashboard");
         this.setContentPane(mainPanel);
         this.setDefaultCloseOperation(JFrame.EXIT_ON_CLOSE);
-        this.setSize(1300, 850);
+        this.setSize(1300, 900);
         this.setLocationRelativeTo(null);
         this.setUndecorated(true);
         logoLabel.setIcon(imageIcon);
@@ -139,13 +139,13 @@ public class userDashboard extends JFrame {
         //Init mainContentPanel cardLayout
         mainContentPanel = new JPanel();
         mainContentPanel.setLayout(cardLayout);
-        mainContentPanel.add(new gameStorePanel(account), "gameStorePanel");
+        mainContentPanel.add(new gameStorePanel(account, this), "gameStorePanel");
         mainContentPanel.add(new libraryPanel(account), "libraryPanel");
         mainContentPanel.add(new walletPanel(account), "walletPanel");
-
+        mainContentPanel.setBackground(Color.decode("#3D4450"));
         contentPanel.add(mainContentPanel, BorderLayout.CENTER);
     }
     public static void main(String[] args) {
-        new userDashboard(new Account("VINHSONGTOT", "123123", "User")).setVisible(true);
+        new userDashboard(new Account(999, "VINHSONGTOT", "123123", "User")).setVisible(true);
     }
 }

@@ -1,14 +1,20 @@
 package DTO;
 
 public class Account {
+    private Integer id;
     private String username;
     private String password;
     private String accessRight;
 
-    public Account(String username, String password, String accessRight) {
+    public Account(Integer id,String username, String password, String accessRight) {
+        this.id = id;
         this.username = username;
         this.password = password;
         this.accessRight = accessRight;
+    }
+
+    public Integer getId() {
+        return id;
     }
 
     public String getUsername() {

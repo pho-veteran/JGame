@@ -37,4 +37,18 @@ public class UserDAO {
         }
         return 0;
     }
+    public Integer getUserID(String username) {
+        String sql = "SELECT userID FROM users WHERE username = ?";
+        try (PreparedStatement preparedStatement = dbConn.getConn().prepareStatement(sql)) {
+            preparedStatement.setString(1, username);
+            ResultSet rs = preparedStatement.executeQuery();
+            if (rs.next()) {
+                System.out.println("User ID: " + rs.getInt("userID"));
+                return rs.getInt("userID");
+            }
+        } catch (SQLException e) {
+            e.printStackTrace();
+        }
+        return 0;
+    }
 }

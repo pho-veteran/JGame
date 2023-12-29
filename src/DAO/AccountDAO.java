@@ -48,7 +48,7 @@ public class AccountDAO {
             preparedStatement.setString(2, password);
             ResultSet rs = preparedStatement.executeQuery();
             if (rs.next()) {
-                Account result = new Account(rs.getString("username"), rs.getString("password"), rs.getString("accessRight"));
+                Account result = new Account(rs.getInt("accountID"), rs.getString("username"), rs.getString("password"), rs.getString("accessRight"));
                 return result;
             } else {
                 return null;

@@ -1,4 +1,4 @@
-package TestingFeatureZone;
+package testingFeature;
 
 import javax.swing.*;
 import java.awt.*;

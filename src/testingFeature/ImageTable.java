@@ -1,4 +1,4 @@
-package TestingFeatureZone;
+package testingFeature;
 
 import javax.swing.*;
 import javax.swing.table.DefaultTableCellRenderer;
@@ -13,14 +13,21 @@ public class ImageTable extends JFrame {
         this.setContentPane(mainPanel);
         mainPanel.setLayout(new BorderLayout());
         setDefaultCloseOperation(JFrame.EXIT_ON_CLOSE);
-        setSize(400, 300);
+        setSize(400, 500);
 
-        this.initTable();
+        // Add image above the table
+        ImageIcon headerImageIcon = new ImageIcon("src/icon/headerImage.png"); // Replace with the path to your header image
+        JLabel headerImageLabel = new JLabel(headerImageIcon);
+        mainPanel.add(headerImageLabel, BorderLayout.NORTH);
+
+        // Add table to the center
+        initTable();
         setTableColumnImage();
         mainPanel.add(new JScrollPane(table), BorderLayout.CENTER);
     }
 
     public void initTable() {
+        String firstString;
         String[] columnNames = {"Name", "Image"};
         Object[][] data = {
                 {"1", new ImageIcon("src/icon/logo.png")},
@@ -32,9 +39,10 @@ public class ImageTable extends JFrame {
 
         table = new JTable(new DefaultTableModel(data, columnNames)) {
             private static final long serialVersionUID = 1L;
+
             public boolean isCellEditable(int row, int column) {
                 return false;
-            };
+            }
         };
         table.setAutoResizeMode(JTable.AUTO_RESIZE_ALL_COLUMNS);
         table.setRowHeight(512);
@@ -43,18 +51,16 @@ public class ImageTable extends JFrame {
 
     }
 
-    // Set table column renderer as image
     public void setTableColumnImage() {
         table.getColumnModel().getColumn(1).setCellRenderer(new ImageRenderer());
     }
 
-
-    // Image renderer
     public class ImageRenderer extends DefaultTableCellRenderer {
         public ImageRenderer() {
             super();
             setHorizontalAlignment(JLabel.CENTER); // Center the image in the cell
         }
+
         @Override
         protected void setValue(Object value) {
             if (value instanceof ImageIcon) {

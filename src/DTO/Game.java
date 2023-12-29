@@ -6,15 +6,21 @@ public class Game {
     private String name;
     private String description;
     private String genre;
-
-    public Game(int gameID, double price, String name, String description, String genre) {
+    private String bannerURL;
+    public Game(int gameID, double price, String name, String description, String genre, String bannerURL) {
         this.gameId = gameID;
         this.price = price;
         this.name = name;
         this.description = description;
         this.genre = genre;
+        this.bannerURL = bannerURL;
     }
+    public Game() {
 
+    }
+    public String getBannerURL() {
+        return bannerURL;
+    }
     public double getPrice() {
         return price;
     }
@@ -53,5 +59,9 @@ public class Game {
 
     public void setGameId(int gameId) {
         this.gameId = gameId;
+    }
+
+    public void setBannerURL(String bannerURL) {
+        this.bannerURL = bannerURL;
     }
 }
