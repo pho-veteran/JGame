@@ -28,7 +28,7 @@ public class userDashboard extends JFrame {
     private JButton exitButton;
     private JPanel menuPanel;
     private JButton about;
-    private JButton profile;
+    private JButton changePassword;
     private Border currentBorder;
     private Account account;
     private ImageIcon imageIcon = new ImageIcon(new ImageIcon("src/icon/logo.png").getImage().getScaledInstance(220, 220, Image.SCALE_SMOOTH));
@@ -54,6 +54,13 @@ public class userDashboard extends JFrame {
                     }
                 });
             }
+        });
+        changePassword.addActionListener(e -> {
+            SwingUtilities.invokeLater(new Runnable() {
+                public void run() {
+                    new changePasswordGUI(account).setVisible(true);
+                }
+            });
         });
     }
     public void initListeners() {
@@ -139,13 +146,11 @@ public class userDashboard extends JFrame {
         //Init mainContentPanel cardLayout
         mainContentPanel = new JPanel();
         mainContentPanel.setLayout(cardLayout);
-        mainContentPanel.add(new gameStorePanel(account, this), "gameStorePanel");
-        mainContentPanel.add(new libraryPanel(account), "libraryPanel");
+        libraryPanel libPanel = new libraryPanel(account);
+        mainContentPanel.add(new gameStorePanel(account, this, libPanel), "gameStorePanel");
+        mainContentPanel.add(libPanel, "libraryPanel");
         mainContentPanel.add(new walletPanel(account), "walletPanel");
         mainContentPanel.setBackground(Color.decode("#3D4450"));
         contentPanel.add(mainContentPanel, BorderLayout.CENTER);
-    }
-    public static void main(String[] args) {
-        new userDashboard(new Account(999, "VINHSONGTOT", "123123", "User")).setVisible(true);
     }
 }

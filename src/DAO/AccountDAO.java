@@ -58,4 +58,29 @@ public class AccountDAO {
             return null;
         }
     }
+    public String getPassword(Integer accountID) {
+        String sql = "SELECT password FROM accounts WHERE accountID = ?";
+        try (PreparedStatement preparedStatement = dbConn.getConn().prepareStatement(sql)) {
+            preparedStatement.setInt(1, accountID);
+            ResultSet rs = preparedStatement.executeQuery();
+            if (rs.next()) {
+                return rs.getString("password");
+            } else {
+                return null;
+            }
+        } catch (Exception e) {
+            e.printStackTrace();
+            return null;
+        }
+    }
+    public void changePassword(String newPassword, Integer accountID) {
+        String sql = "UPDATE accounts SET password = ? WHERE accountID = ?";
+        try (PreparedStatement preparedStatement = dbConn.getConn().prepareStatement(sql)) {
+            preparedStatement.setString(1, newPassword);
+            preparedStatement.setInt(2, accountID);
+            preparedStatement.executeUpdate();
+        } catch (Exception e) {
+            e.printStackTrace();
+        }
+    }
 }

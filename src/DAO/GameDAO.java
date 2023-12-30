@@ -131,4 +131,57 @@ public class GameDAO {
             e.printStackTrace();
         }
     }
+
+    //Get owned games by account id
+    public ArrayList<Game> getOwnedGames(Integer accountID) {
+        ArrayList<Game> ownedGamesList = new ArrayList<>();
+        String sql = "SELECT games.*\n" +
+                "FROM games\n" +
+                "INNER JOIN usergames ON games.gameID = usergames.gameID\n" +
+                "WHERE usergames.userID = ?";
+        try (PreparedStatement preparedStatement = conn.getConn().prepareStatement(sql)) {
+            preparedStatement.setInt(1, accountID);
+            ResultSet rs = preparedStatement.executeQuery();
+            while (rs.next()) {
+                Game currentGame = new Game();
+                currentGame.setGameId(rs.getInt("gameID"));
+                currentGame.setDescription(rs.getString("description"));
+                currentGame.setGenre(rs.getString("genre"));
+                currentGame.setName(rs.getString("name"));
+                currentGame.setPrice(rs.getDouble("price"));
+                currentGame.setBannerURL(rs.getString("bannerURL"));
+                ownedGamesList.add(currentGame);
+            }
+        } catch (Exception e) {
+            e.printStackTrace();
+        }
+        return ownedGamesList;
+    }
+    //Get searched owned games by account id, name, genre
+    public ArrayList<Game> getSearchedOwnedGames(Integer accountID, String name, String genre) {
+        ArrayList<Game> ownedGamesList = new ArrayList<>();
+        String sql = "SELECT games.*\n" +
+                "FROM games\n" +
+                "INNER JOIN usergames ON games.gameID = usergames.gameID\n" +
+                "WHERE usergames.userID = ? AND games.name LIKE ? AND games.genre LIKE ?";
+        try (PreparedStatement preparedStatement = conn.getConn().prepareStatement(sql)) {
+            preparedStatement.setInt(1, accountID);
+            preparedStatement.setString(2, "%" + name + "%");
+            preparedStatement.setString(3, "%" + genre + "%");
+            ResultSet rs = preparedStatement.executeQuery();
+            while (rs.next()) {
+                Game currentGame = new Game();
+                currentGame.setGameId(rs.getInt("gameID"));
+                currentGame.setDescription(rs.getString("description"));
+                currentGame.setGenre(rs.getString("genre"));
+                currentGame.setName(rs.getString("name"));
+                currentGame.setPrice(rs.getDouble("price"));
+                currentGame.setBannerURL(rs.getString("bannerURL"));
+                ownedGamesList.add(currentGame);
+            }
+        } catch (Exception e) {
+            e.printStackTrace();
+        }
+        return ownedGamesList;
+    }
 }

@@ -91,7 +91,4 @@ public class loginMenu extends JFrame {
         passwordField.setBorder(BorderFactory.createLineBorder(Color.GRAY, 2));
         logo.setIcon(imageIcon);
     }
-    public static void main(String[] args) {
-        new loginMenu().setVisible(true);
-    }
 }

@@ -57,12 +57,13 @@ public class gameStorePanel extends JPanel {
     private ArrayList<Game> gameList;
     private ArrayList<Game> searchedGameList;
     private Boolean isAnyRowSelected = false;
-    private Integer previousSelectedRow = -1;
     private userDashboard parentFrame;
-    public gameStorePanel(Account account, userDashboard parentFrame) {
+    private libraryPanel controlLibraryPanel;
+    public gameStorePanel(Account account, userDashboard parentFrame, libraryPanel controlLibraryPanel) {
         this.initPanel();
         this.account = account;
         this.parentFrame = parentFrame;
+        this.controlLibraryPanel = controlLibraryPanel;
         collapseToggle.addActionListener(e -> {
             placeHolderPanel_1.setVisible(false);
             collapsePanel.setVisible(true);
@@ -85,7 +86,6 @@ public class gameStorePanel extends JPanel {
             searchPanel_2.setVisible(false);
         });
         confirmSearchButton.addActionListener(e -> {
-            previousSelectedRow = -1;
             Object[][] searchedGameListObject = getSearchedGameList(searchBox.getText(),
                     byGenreComboBox.getSelectedItem().toString());
             String[] gameColumnNames = {"Image", "Name"};
@@ -98,11 +98,9 @@ public class gameStorePanel extends JPanel {
                         collapsePanel.setVisible(true);
                     }
                     int selectedRow = gameTable.getSelectedRow();
-                    if (selectedRow != previousSelectedRow) {
-                        Game selectedGame = searchedGameList.get(selectedRow);
-                        gameInfoDisplay(selectedGame);
-                        showGameInfoPanel();
-                    }
+                    Game selectedGame = searchedGameList.get(selectedRow);
+                    gameInfoDisplay(selectedGame);
+                    showGameInfoPanel();
                 }
             });
             gameScrollPane.setViewportView(gameTable);
@@ -132,12 +130,10 @@ public class gameStorePanel extends JPanel {
                     placeHolderPanel_1.setVisible(false);
                     collapsePanel.setVisible(true);
                 }
-                if (gameTable.getSelectedRow() != previousSelectedRow) {
-                    int selectedRow = gameTable.getSelectedRow();
-                    Game selectedGame = gameList.get(selectedRow);
-                    gameInfoDisplay(selectedGame);
-                    showGameInfoPanel();
-                }
+                int selectedRow = gameTable.getSelectedRow();
+                Game selectedGame = gameList.get(selectedRow);
+                gameInfoDisplay(selectedGame);
+                showGameInfoPanel();
             }
         });
         gameScrollPane = new ScrollPaneWin11();
@@ -201,6 +197,7 @@ public class gameStorePanel extends JPanel {
                     gameInfo_Price_Button.setBackground(Color.decode("#5D5F64"));
                     gameInfo_Price_Button.setEnabled(false);
                     parentFrame.initAccountInfomation();
+                    controlLibraryPanel.initGameOwnedTable();
                 } else {
                     JOptionPane.showMessageDialog(null, "Not enough balance to buy this game");
                 }
