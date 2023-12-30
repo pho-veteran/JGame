@@ -1,7 +1,6 @@
 <h1 align="center">
   <img alt="logo" src="./src/icon/logo.png" width="128px" style="border-radius:10px"/><br/>
 JGame - Java OOP Project </h1>
-## Description
 
 This project, developed by Nguyễn Thành Vinh for the VKU Java OOP course, is a Java-based Object-Oriented Programming (OOP) system for managing a gaming platform named "JGame."
 
