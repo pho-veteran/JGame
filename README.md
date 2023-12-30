@@ -15,6 +15,24 @@ This project, developed by Nguyễn Thành Vinh for the VKU Java OOP course, is 
 - **Persistence:** Utilize data storage for maintaining user and game information.
 - **GUI (Graphical User Interface):** User-friendly interface for a better user experience.
 
+## Using IntelliJ IDEA
+
+To work on this project using IntelliJ IDEA:
+
+1. **Clone this Repository**
+
+   - git clone https://github.com/pho-veteran/JGame.git
+     
+2. **Open IntelliJ IDEA:**
+
+   - Open IntelliJ IDEA.
+   - Select "File" > "Open" and navigate to the project directory.
+
+3. **Build and Run:**
+
+   - Build the project using the IntelliJ build tools.
+   - Run the `runFile` class
+
 ## Contact
 
 - **Author: Nguyễn Thành Vinh**
