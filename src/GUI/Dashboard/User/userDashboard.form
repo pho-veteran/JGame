@@ -129,7 +129,7 @@
                 </constraints>
                 <properties>
                   <alignmentX value="0.0"/>
-                  <alignmentY value="0.0"/>
+                  <alignmentY value="0.5"/>
                   <autoscrolls value="false"/>
                   <background color="-13616814"/>
                   <borderPainted value="false"/>
@@ -141,7 +141,7 @@
                   <hideActionText value="false"/>
                   <horizontalAlignment value="0"/>
                   <icon value="icon/dashboard/user/storeLogo.png"/>
-                  <iconTextGap value="5"/>
+                  <iconTextGap value="6"/>
                   <opaque value="false"/>
                   <requestFocusEnabled value="true"/>
                   <selected value="true"/>
@@ -156,15 +156,15 @@
                 <properties>
                   <actionCommand value="Library   "/>
                   <alignmentX value="0.0"/>
-                  <alignmentY value="0.0"/>
+                  <alignmentY value="0.5"/>
                   <background color="-13616814"/>
                   <borderPainted value="false"/>
                   <focusPainted value="false"/>
                   <font name="Inter" size="22" style="1"/>
                   <foreground color="-197380"/>
                   <horizontalTextPosition value="11"/>
-                  <icon value="icon/dashboard/user/libraryLogo.png"/>
-                  <iconTextGap value="5"/>
+                  <icon value="icon/dashboard/user/libraryLogo_3.png"/>
+                  <iconTextGap value="6"/>
                   <margin top="0" left="0" bottom="0" right="0"/>
                   <opaque value="false"/>
                   <text value="Library"/>
@@ -175,14 +175,14 @@
                   <grid row="2" column="0" row-span="1" col-span="1" vsize-policy="0" hsize-policy="2" anchor="0" fill="1" indent="0" use-parent-layout="false"/>
                 </constraints>
                 <properties>
-                  <alignmentY value="0.0"/>
+                  <alignmentY value="0.5"/>
                   <background color="-13616814"/>
                   <borderPainted value="false"/>
                   <focusPainted value="false"/>
                   <font name="Inter" size="22" style="1"/>
                   <foreground color="-197380"/>
                   <icon value="icon/dashboard/user/walletLogo.png"/>
-                  <iconTextGap value="5"/>
+                  <iconTextGap value="6"/>
                   <label value="Wallet "/>
                   <opaque value="false"/>
                   <requestFocusEnabled value="true"/>

@@ -51,4 +51,24 @@ public class UserDAO {
         }
         return 0;
     }
+
+    public void addFund(String username, double fund) {
+        String sql = "UPDATE users SET balance = balance + ? WHERE username = ?";
+        try (PreparedStatement preparedStatement = dbConn.getConn().prepareStatement(sql)) {
+            preparedStatement.setDouble(1, fund);
+            preparedStatement.setString(2, username);
+            preparedStatement.executeUpdate();
+        } catch (SQLException e) {
+            e.printStackTrace();
+        }
+    }
+    public void buyPrime(String username) {
+        String sql = "UPDATE users SET primeStatus = 1 WHERE username = ?";
+        try (PreparedStatement preparedStatement = dbConn.getConn().prepareStatement(sql)) {
+            preparedStatement.setString(1, username);
+            preparedStatement.executeUpdate();
+        } catch (SQLException e) {
+            e.printStackTrace();
+        }
+    }
 }

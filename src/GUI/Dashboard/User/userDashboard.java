@@ -149,7 +149,7 @@ public class userDashboard extends JFrame {
         libraryPanel libPanel = new libraryPanel(account);
         mainContentPanel.add(new gameStorePanel(account, this, libPanel), "gameStorePanel");
         mainContentPanel.add(libPanel, "libraryPanel");
-        mainContentPanel.add(new walletPanel(account), "walletPanel");
+        mainContentPanel.add(new walletPanel(account, this), "walletPanel");
         mainContentPanel.setBackground(Color.decode("#3D4450"));
         contentPanel.add(mainContentPanel, BorderLayout.CENTER);
     }

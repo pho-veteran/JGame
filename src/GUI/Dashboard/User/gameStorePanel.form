@@ -281,7 +281,7 @@
                     <properties>
                       <font name="Inter Semi Bold" size="22" style="1"/>
                       <foreground color="-12729901"/>
-                      <text value="Search"/>
+                      <text value="Filter"/>
                     </properties>
                   </component>
                 </children>

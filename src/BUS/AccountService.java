@@ -58,4 +58,12 @@ public class AccountService {
         AccountDAO accountDAO = new AccountDAO();
         accountDAO.changePassword(newPassword, accountID);
     }
+
+    public void addFund(String username, int fund) {
+        new UserDAO().addFund(username, fund);
+    }
+    //Buy Prime
+    public void buyPrime(String username) {
+        new UserDAO().buyPrime(username);
+    }
 }

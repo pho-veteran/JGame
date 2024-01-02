@@ -60,6 +60,7 @@ public class libraryPanel extends JPanel {
         this.add(mainPanel, BorderLayout.CENTER);
         initGameOwnedTable();
         loadGameGenreComboBox();
+        gameInfoPanel.setVisible(false);
         searchPanel_2.setVisible(false);
     }
     public void updateGameInfoPanel(Game game) {
@@ -69,6 +70,7 @@ public class libraryPanel extends JPanel {
         gameInfo_Desc.setText("<html><p style=\"width:300px; text-align:center;\">"+
                 game.getDescription()
                 +"</p></html>");
+        gameInfoPanel.setVisible(true);
     }
     private void createUIComponents() {
         //Custom ScrollPane
