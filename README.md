@@ -20,7 +20,7 @@ To work on this project using IntelliJ IDEA:
 1. **Clone this Repository and Create Database**
 
    - git clone `https://github.com/pho-veteran/JGame.git`
-   - 'Database' folder contains the database file. You can import it into your MySQL database.
+   - `Database` folder contains the MySQL Query file. You can import it into your MySQL database.
      
 2. **Open IntelliJ IDEA:**
 
