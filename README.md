@@ -17,9 +17,10 @@ This project, developed by Nguyễn Thành Vinh for the VKU Java OOP course fina
 
 To work on this project using IntelliJ IDEA:
 
-1. **Clone this Repository**
+1. **Clone this Repository and Create Database**
 
-   - git clone https://github.com/pho-veteran/JGame.git
+   - git clone `https://github.com/pho-veteran/JGame.git`
+   - 'Database' folder contains the database file. You can import it into your MySQL database.
      
 2. **Open IntelliJ IDEA:**
 
