@@ -2,20 +2,20 @@ package GUI.CustomComponents;
 
 import javax.swing.*;
 import javax.swing.table.DefaultTableCellRenderer;
-import java.awt.*;
 import javax.swing.table.DefaultTableModel;
 import javax.swing.table.JTableHeader;
+import java.awt.*;
 
-public class customImageTable extends JTable {
+public class customImageTable_3 extends JTable {
     private String[] columnNames;
     private Object[][] data;
-    public customImageTable() {
+    public customImageTable_3() {
         super();
         initTable();
         setTableColumnImage();
         setTableColumnTextFormat();
     }
-    public customImageTable(String[] columnNames, Object[][] data) {
+    public customImageTable_3(String[] columnNames, Object[][] data) {
         super();
         this.columnNames = columnNames;
         this.data = data;
@@ -48,7 +48,7 @@ public class customImageTable extends JTable {
     }
     public void setTableColumnImage() {
         this.getColumnModel().getColumn(0).setCellRenderer(new ImageRenderer());
-        this.getColumnModel().getColumn(0).setMaxWidth(250);
+        this.getColumnModel().getColumn(0).setMaxWidth(180);
     }
     public void setTableColumnTextFormat() {
         this.getColumnModel().getColumn(1).setCellRenderer(new DefaultTableCellRenderer() {
@@ -57,13 +57,14 @@ public class customImageTable extends JTable {
                                                            boolean hasFocus, int row, int column) {
                 JLabel label = (JLabel) super.getTableCellRendererComponent(table, value, isSelected, hasFocus, row, column);
                 label.setText((String) value);
-                label.setHorizontalAlignment(JLabel.LEADING);
-                label.setVerticalAlignment(JLabel.TOP);
+                label.setHorizontalAlignment(JLabel.CENTER);
+                label.setVerticalAlignment(JLabel.CENTER);
+                label.setFont(new Font("Inter", Font.BOLD, 16));
                 label.setBorder(null);
                 return label;
             }
         });
-        this.getColumnModel().getColumn(1).setMaxWidth(400);
+        this.getColumnModel().getColumn(1).setMaxWidth(220);
     }
     public class ImageRenderer extends DefaultTableCellRenderer {
         public ImageRenderer() {

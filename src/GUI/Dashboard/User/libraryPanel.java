@@ -122,7 +122,6 @@ public class libraryPanel extends JPanel {
             }
         });
         gameOwnedScrollPane.setViewportView(gameOwnedTable);
-        gameOwnedScrollPane.setBackground(Color.decode("#1A2034"));
     }
     public void loadGameGenreComboBox() {
         byGenreComboBox.addItem("");

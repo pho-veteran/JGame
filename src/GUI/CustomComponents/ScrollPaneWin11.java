@@ -8,10 +8,6 @@ import java.util.Objects;
 import javax.swing.JScrollPane;
 import javax.swing.ScrollPaneLayout;
 
-/**
- *
- * @author Raven
- */
 public class ScrollPaneWin11 extends JScrollPane {
 
     public ScrollPaneWin11() {

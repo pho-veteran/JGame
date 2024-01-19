@@ -184,4 +184,54 @@ public class GameDAO {
         }
         return ownedGamesList;
     }
+
+    //Update game info
+    public void updateGame(Game game) {
+        String sql = "UPDATE games SET price = ?, name = ?, description = ?, genre = ?, bannerURL = ? WHERE gameID = ?";
+        try (PreparedStatement preparedStatement = conn.getConn().prepareStatement(sql)) {
+            preparedStatement.setDouble(1, game.getPrice());
+            preparedStatement.setString(2, game.getName());
+            preparedStatement.setString(3, game.getDescription());
+            preparedStatement.setString(4, game.getGenre());
+            preparedStatement.setString(5, game.getBannerURL());
+            preparedStatement.setInt(6, game.getGameId());
+            preparedStatement.executeUpdate();
+        } catch (Exception e) {
+            e.printStackTrace();
+        }
+    }
+    //Copy image to src/icon/game of this project
+    public void copyImageToGameIconFolder(String path) {
+        String sql = "UPDATE games SET bannerURL = ? WHERE gameID = ?";
+        try (PreparedStatement preparedStatement = conn.getConn().prepareStatement(sql)) {
+            preparedStatement.setString(1, path);
+            preparedStatement.setInt(2, 1);
+            preparedStatement.executeUpdate();
+        } catch (Exception e) {
+            e.printStackTrace();
+        }
+    }
+    public void removeGame(Game game) {
+        String sql = "DELETE FROM games WHERE gameID = ?";
+        try (PreparedStatement preparedStatement = conn.getConn().prepareStatement(sql)) {
+            preparedStatement.setInt(1, game.getGameId());
+            preparedStatement.executeUpdate();
+        } catch (Exception e) {
+            e.printStackTrace();
+        }
+    }
+    //Add game to database
+    public void addGame(Game game) {
+        String sql = "INSERT INTO games(price, name, description, genre, bannerURL) VALUES(?, ?, ?, ?, ?)";
+        try (PreparedStatement preparedStatement = conn.getConn().prepareStatement(sql)) {
+            preparedStatement.setDouble(1, game.getPrice());
+            preparedStatement.setString(2, game.getName());
+            preparedStatement.setString(3, game.getDescription());
+            preparedStatement.setString(4, game.getGenre());
+            preparedStatement.setString(5, game.getBannerURL());
+            preparedStatement.executeUpdate();
+        } catch (Exception e) {
+            e.printStackTrace();
+        }
+    }
 }

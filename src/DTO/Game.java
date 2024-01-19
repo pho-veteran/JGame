@@ -16,7 +16,12 @@ public class Game {
         this.bannerURL = bannerURL;
     }
     public Game() {
-
+        this.gameId = 0;
+        this.price = 0;
+        this.name = "";
+        this.description = "";
+        this.genre = "";
+        this.bannerURL = "";
     }
     public String getBannerURL() {
         return bannerURL;

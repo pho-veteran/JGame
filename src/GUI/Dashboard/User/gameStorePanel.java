@@ -142,7 +142,7 @@ public class gameStorePanel extends JPanel {
         gameScrollPane.setBackground(Color.decode("#1A2034"));
     }
     public void fetchGameList() {
-        gameList = new GameService().getAllGameList();
+        gameList = new GameService().getAllGamesList();
     }
     public void loadGameGenreComboBox() {
         byGenreComboBox.addItem("");
@@ -153,7 +153,7 @@ public class gameStorePanel extends JPanel {
         byGenreComboBox.setSelectedIndex(0);
     }
     public void updateTop5Game() {
-        ArrayList<Game> top5GameList = new GameService().getTop5GameList();
+        ArrayList<Game> top5GameList = new GameService().getTop5GamesList();
         gameLogo_1.setIcon(new ImageIcon(top5GameList.get(0).getBannerURL()));
         gameLogo_2.setIcon(new ImageIcon(top5GameList.get(1).getBannerURL()));
         gameLogo_3.setIcon(new ImageIcon(top5GameList.get(2).getBannerURL()));
@@ -165,7 +165,6 @@ public class gameStorePanel extends JPanel {
         gameDesc_4.setText(top5GameList.get(3).getName());
         gameDesc_5.setText(top5GameList.get(4).getName());
     }
-    //Remove gameInfo_Price_Button listener if exist
     public void removeGameInfo_Price_ButtonListener() {
         ActionListener[] actionListeners = gameInfo_Price_Button.getActionListeners();
         for (ActionListener al : actionListeners) {
