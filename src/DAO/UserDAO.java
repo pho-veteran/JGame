@@ -5,7 +5,7 @@ import java.sql.ResultSet;
 import java.sql.SQLException;
 
 public class UserDAO {
-    private DBConn dbConn = new DBConn();
+    private final DBConn dbConn = new DBConn();
 
     public double getBalance(String username) {
         String sql = "SELECT balance FROM users WHERE username = ?";
@@ -37,6 +37,7 @@ public class UserDAO {
         }
         return 0;
     }
+
     public Integer getUserID(String username) {
         String sql = "SELECT userID FROM users WHERE username = ?";
         try (PreparedStatement preparedStatement = dbConn.getConn().prepareStatement(sql)) {
@@ -62,6 +63,7 @@ public class UserDAO {
             e.printStackTrace();
         }
     }
+
     public void buyPrime(String username) {
         String sql = "UPDATE users SET primeStatus = 1 WHERE username = ?";
         try (PreparedStatement preparedStatement = dbConn.getConn().prepareStatement(sql)) {

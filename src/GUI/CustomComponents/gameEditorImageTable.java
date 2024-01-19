@@ -2,20 +2,22 @@ package GUI.CustomComponents;
 
 import javax.swing.*;
 import javax.swing.table.DefaultTableCellRenderer;
-import java.awt.*;
 import javax.swing.table.DefaultTableModel;
 import javax.swing.table.JTableHeader;
+import java.awt.*;
 
-public class customImageTable extends JTable {
+public class gameEditorImageTable extends JTable {
     private String[] columnNames;
     private Object[][] data;
-    public customImageTable() {
+
+    public gameEditorImageTable() {
         super();
         initTable();
         setTableColumnImage();
         setTableColumnTextFormat();
     }
-    public customImageTable(String[] columnNames, Object[][] data) {
+
+    public gameEditorImageTable(String[] columnNames, Object[][] data) {
         super();
         this.columnNames = columnNames;
         this.data = data;
@@ -24,6 +26,7 @@ public class customImageTable extends JTable {
         setTableColumnTextFormat();
         setFont(new Font("Inter Semi Bold", Font.PLAIN, 16));
     }
+
     public void initTable() {
         this.setModel(new DefaultTableModel(data, columnNames) {
             private static final long serialVersionUID = 1L;
@@ -46,10 +49,12 @@ public class customImageTable extends JTable {
     protected JTableHeader createDefaultTableHeader() {
         return null;
     }
+
     public void setTableColumnImage() {
         this.getColumnModel().getColumn(0).setCellRenderer(new ImageRenderer());
-        this.getColumnModel().getColumn(0).setMaxWidth(250);
+        this.getColumnModel().getColumn(0).setMaxWidth(180);
     }
+
     public void setTableColumnTextFormat() {
         this.getColumnModel().getColumn(1).setCellRenderer(new DefaultTableCellRenderer() {
             @Override
@@ -57,19 +62,22 @@ public class customImageTable extends JTable {
                                                            boolean hasFocus, int row, int column) {
                 JLabel label = (JLabel) super.getTableCellRendererComponent(table, value, isSelected, hasFocus, row, column);
                 label.setText((String) value);
-                label.setHorizontalAlignment(JLabel.LEADING);
-                label.setVerticalAlignment(JLabel.TOP);
+                label.setHorizontalAlignment(JLabel.CENTER);
+                label.setVerticalAlignment(JLabel.CENTER);
+                label.setFont(new Font("Inter", Font.BOLD, 16));
                 label.setBorder(null);
                 return label;
             }
         });
-        this.getColumnModel().getColumn(1).setMaxWidth(400);
+        this.getColumnModel().getColumn(1).setMaxWidth(220);
     }
+
     public class ImageRenderer extends DefaultTableCellRenderer {
         public ImageRenderer() {
             super();
             setHorizontalAlignment(JLabel.CENTER);
         }
+
         public Component getTableCellRendererComponent(JTable table, Object value, boolean isSelected,
                                                        boolean hasFocus, int row, int column) {
             JLabel label = (JLabel) super.getTableCellRendererComponent(table, value, isSelected, hasFocus, row, column);
@@ -77,6 +85,7 @@ public class customImageTable extends JTable {
             label.setBorder(null);
             return label;
         }
+
         @Override
         protected void setValue(Object value) {
             if (value instanceof ImageIcon) {

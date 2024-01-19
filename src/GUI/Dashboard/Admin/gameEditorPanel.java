@@ -4,7 +4,7 @@ import BUS.GameService;
 import BUS.ImageHandler;
 import DTO.Game;
 import GUI.CustomComponents.ScrollPaneWin11;
-import GUI.CustomComponents.customImageTable_3;
+import GUI.CustomComponents.gameEditorImageTable;
 
 import javax.swing.*;
 import javax.swing.filechooser.FileNameExtensionFilter;
@@ -42,9 +42,11 @@ public class gameEditorPanel extends JPanel {
     private Game selectedGame;
     private String currentBannerURL;
     private String changedBannerURL;
+
     public gameEditorPanel() {
         this.initPanel();
     }
+
     public void initPanel() {
         fetchGameListData();
         initGameListTable();
@@ -54,6 +56,7 @@ public class gameEditorPanel extends JPanel {
         infoEditorPanel.setVisible(false);
         initListeners();
     }
+
     public void initListeners() {
         confirmSearchButton.addActionListener(e -> {
             fetchSearchedGameListData(searchByNameField.getText());
@@ -102,6 +105,7 @@ public class gameEditorPanel extends JPanel {
             addGameButtonListener();
         });
     }
+
     public void initAddGamesFunction() {
         gameNameField.setText("");
         descField.setText("");
@@ -112,6 +116,7 @@ public class gameEditorPanel extends JPanel {
         selectedGame.setBannerURL("src/icon/game/default.png");
         gameLogo.setIcon(new ImageIcon("src/icon/game/default.png"));
     }
+
     public void editGameButtonListener() {
         discardButton.addActionListener(e -> {
             clearSelection();
@@ -130,6 +135,7 @@ public class gameEditorPanel extends JPanel {
             removeButtonPanelListener();
         });
     }
+
     public void addGameButtonListener() {
         confirmButton.addActionListener(e -> {
             int dialogButton = JOptionPane.YES_NO_OPTION;
@@ -147,23 +153,28 @@ public class gameEditorPanel extends JPanel {
             removeButtonPanelListener();
         });
     }
+
     public void removeButtonPanelListener() {
         removeButtonListener(confirmButton);
         removeButtonListener(discardButton);
     }
+
     public void removeButtonListener(JButton button) {
         for (ActionListener al : button.getActionListeners()) {
             button.removeActionListener(al);
         }
     }
+
     public void resetBannerState() {
         currentBannerURL = null;
         changedBannerURL = null;
     }
+
     public void clearSelection() {
         gameList.getSelectionModel().clearSelection();
         infoEditorPanel.setVisible(false);
     }
+
     public void refreshGameList() {
         if (searchByNameField.getText().equals(""))
             fetchGameListData();
@@ -171,6 +182,7 @@ public class gameEditorPanel extends JPanel {
             fetchSearchedGameListData(searchByNameField.getText());
         initGameListTable();
     }
+
     public void executeAddNewGame() {
         if (checkFieldConstraints()) {
             String projectBannerURL = new ImageHandler().copyImage(changedBannerURL);
@@ -180,6 +192,7 @@ public class gameEditorPanel extends JPanel {
                     selectedGame.getBannerURL()));
         }
     }
+
     public void executeGameInfoUpdate() {
         if (checkFieldConstraints()) {
             if (currentBannerURL != null) {
@@ -196,6 +209,7 @@ public class gameEditorPanel extends JPanel {
                     selectedGame.getBannerURL()));
         }
     }
+
     public boolean checkFieldConstraints() {
         if (priceField.getText().equals("") || gameNameField.getText().equals("")
                 || descField.getText().equals("") || genreField.getText().equals("")) {
@@ -218,6 +232,7 @@ public class gameEditorPanel extends JPanel {
         }
         return true;
     }
+
     public void updateGameInfoPanel() {
         infoEditorPanel.setVisible(true);
         gameNameField.setText(selectedGame.getName());
@@ -226,18 +241,22 @@ public class gameEditorPanel extends JPanel {
         priceField.setText(selectedGame.getPrice() + "");
         gameLogo.setIcon(new ImageIcon(selectedGame.getBannerURL()));
     }
+
     private void createUIComponents() {
         // TODO: place custom component creation code here
         gameListScrollPane = new ScrollPaneWin11();
         gameListScrollPane.setVerticalScrollBarPolicy(JScrollPane.VERTICAL_SCROLLBAR_ALWAYS);
         descScrollPane = new ScrollPaneWin11();
     }
+
     public void fetchGameListData() {
         gameListData = new GameService().getAllGamesList();
     }
+
     public void fetchSearchedGameListData(String name) {
         gameListData = new GameService().searchGame(name, "");
     }
+
     public void initGameListTable() {
         String[] columnNames = {"Image", "Name"};
         Object[][] data = new Object[gameListData.size()][2];
@@ -245,7 +264,7 @@ public class gameEditorPanel extends JPanel {
             data[i][0] = new ImageIcon(gameListData.get(i).getBannerURL());
             data[i][1] = gameListData.get(i).getName();
         }
-        gameList = new customImageTable_3(columnNames, data);
+        gameList = new gameEditorImageTable(columnNames, data);
         gameListScrollPane.setViewportView(gameList);
 
         gameList.getSelectionModel().addListSelectionListener(e -> {

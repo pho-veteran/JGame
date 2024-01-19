@@ -6,24 +6,28 @@ import javax.swing.table.DefaultTableModel;
 import javax.swing.table.JTableHeader;
 import java.awt.*;
 
-public class customImageTable_3 extends JTable {
+public class libraryImageTable extends JTable {
     private String[] columnNames;
     private Object[][] data;
-    public customImageTable_3() {
+
+    public libraryImageTable() {
         super();
         initTable();
         setTableColumnImage();
-        setTableColumnTextFormat();
+        setTableColumnTextCenter();
     }
-    public customImageTable_3(String[] columnNames, Object[][] data) {
+
+    public libraryImageTable(String[] columnNames, Object[][] data) {
         super();
         this.columnNames = columnNames;
         this.data = data;
         initTable();
         setTableColumnImage();
-        setTableColumnTextFormat();
-        setFont(new Font("Inter Semi Bold", Font.PLAIN, 16));
+        setTableColumnTextCenter();
+        setFont(new Font("Inter Semi Bold", Font.BOLD, 16));
+        setForeground(Color.decode("#FFFFFF"));
     }
+
     public void initTable() {
         this.setModel(new DefaultTableModel(data, columnNames) {
             private static final long serialVersionUID = 1L;
@@ -36,7 +40,7 @@ public class customImageTable_3 extends JTable {
         });
         this.setAutoResizeMode(JTable.AUTO_RESIZE_ALL_COLUMNS);
         this.setRowHeight(250);
-        this.setBackground(Color.decode("#ECECEC"));
+        this.setBackground(Color.decode("#1A2034"));
         this.setSelectionMode(ListSelectionModel.SINGLE_SELECTION);
         this.showVerticalLines = false;
         this.showHorizontalLines = false;
@@ -46,31 +50,34 @@ public class customImageTable_3 extends JTable {
     protected JTableHeader createDefaultTableHeader() {
         return null;
     }
+
     public void setTableColumnImage() {
         this.getColumnModel().getColumn(0).setCellRenderer(new ImageRenderer());
-        this.getColumnModel().getColumn(0).setMaxWidth(180);
+        this.getColumnModel().getColumn(0).setMaxWidth(250);
     }
-    public void setTableColumnTextFormat() {
+
+    public void setTableColumnTextCenter() {
         this.getColumnModel().getColumn(1).setCellRenderer(new DefaultTableCellRenderer() {
             @Override
             public Component getTableCellRendererComponent(JTable table, Object value, boolean isSelected,
                                                            boolean hasFocus, int row, int column) {
                 JLabel label = (JLabel) super.getTableCellRendererComponent(table, value, isSelected, hasFocus, row, column);
                 label.setText((String) value);
-                label.setHorizontalAlignment(JLabel.CENTER);
+                label.setHorizontalAlignment(JLabel.LEADING);
                 label.setVerticalAlignment(JLabel.CENTER);
-                label.setFont(new Font("Inter", Font.BOLD, 16));
                 label.setBorder(null);
                 return label;
             }
         });
-        this.getColumnModel().getColumn(1).setMaxWidth(220);
+        this.getColumnModel().getColumn(1).setMaxWidth(400);
     }
+
     public class ImageRenderer extends DefaultTableCellRenderer {
         public ImageRenderer() {
             super();
             setHorizontalAlignment(JLabel.CENTER);
         }
+
         public Component getTableCellRendererComponent(JTable table, Object value, boolean isSelected,
                                                        boolean hasFocus, int row, int column) {
             JLabel label = (JLabel) super.getTableCellRendererComponent(table, value, isSelected, hasFocus, row, column);
@@ -78,6 +85,7 @@ public class customImageTable_3 extends JTable {
             label.setBorder(null);
             return label;
         }
+
         @Override
         protected void setValue(Object value) {
             if (value instanceof ImageIcon) {

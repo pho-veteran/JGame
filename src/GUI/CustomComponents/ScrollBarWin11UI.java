@@ -1,13 +1,12 @@
 package GUI.CustomComponents;
 
-import java.awt.AlphaComposite;
-import java.awt.Color;
-import java.awt.Dimension;
-import java.awt.Graphics;
-import java.awt.Graphics2D;
-import java.awt.Rectangle;
-import java.awt.RenderingHints;
-import java.awt.Shape;
+import org.jdesktop.animation.timing.Animator;
+import org.jdesktop.animation.timing.TimingTargetAdapter;
+
+import javax.swing.*;
+import javax.swing.plaf.ComponentUI;
+import javax.swing.plaf.basic.BasicScrollBarUI;
+import java.awt.*;
 import java.awt.event.MouseAdapter;
 import java.awt.event.MouseEvent;
 import java.awt.geom.Point2D;
@@ -15,27 +14,16 @@ import java.awt.geom.Rectangle2D;
 import java.awt.geom.RoundRectangle2D;
 import java.util.ArrayList;
 import java.util.List;
-import javax.swing.JButton;
-import javax.swing.JComponent;
-import javax.swing.JScrollBar;
-import javax.swing.plaf.ComponentUI;
-import javax.swing.plaf.basic.BasicScrollBarUI;
-import org.jdesktop.animation.timing.Animator;
-import org.jdesktop.animation.timing.TimingTargetAdapter;
 
 public class ScrollBarWin11UI extends BasicScrollBarUI {
 
+    private final int scrollSize = 14;
+    private final MouseAdapter mouseEvent;
     private Animator animator;
     private float animate;
     private boolean show;
     private boolean hover;
     private boolean press;
-    private final int scrollSize = 14;
-    private final MouseAdapter mouseEvent;
-
-    public static ComponentUI createUI(JComponent c) {
-        return new ScrollBarWin11UI();
-    }
 
     public ScrollBarWin11UI() {
         mouseEvent = new MouseAdapter() {
@@ -68,6 +56,10 @@ public class ScrollBarWin11UI extends BasicScrollBarUI {
                 }
             }
         };
+    }
+
+    public static ComponentUI createUI(JComponent c) {
+        return new ScrollBarWin11UI();
     }
 
     @Override

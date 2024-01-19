@@ -8,8 +8,8 @@ import java.util.ArrayList;
 
 public class GameDAO {
 
-    private DBConn conn = new DBConn();
-    //Get top 5 games from database return a list of Object: Game
+    private final DBConn conn = new DBConn();
+
     public ArrayList<Game> getTop5GameList() {
         ArrayList<Game> top5GameList = new ArrayList<>();
         String sql = "SELECT games.*\n" +
@@ -36,7 +36,6 @@ public class GameDAO {
         return top5GameList;
     }
 
-    //Get all games from database return a list of Object: Game
     public ArrayList<Game> getAllGameList() {
         ArrayList<Game> allGameList = new ArrayList<>();
         String sql = "SELECT * FROM games";
@@ -58,7 +57,6 @@ public class GameDAO {
         return allGameList;
     }
 
-    //Search by name or genre or both, return a list of Object: Game
     public ArrayList<Game> getSearchGameList(String name, String genre) {
         ArrayList<Game> searchGameList = new ArrayList<>();
         String sql = "SELECT * FROM games WHERE name LIKE ? AND genre LIKE ?";
@@ -82,7 +80,6 @@ public class GameDAO {
         return searchGameList;
     }
 
-    //Get game genre list from database return a list of String
     public ArrayList<String> getGameGenre() {
         ArrayList<String> genreList = new ArrayList<>();
         String sql = "SELECT DISTINCT genre FROM games";
@@ -97,10 +94,9 @@ public class GameDAO {
         return genreList;
     }
 
-    //Check if user owned the game or not
     public boolean checkGameOwned(String username, Integer gameID) {
         String sql = "SELECT * FROM usergames INNER JOIN users ON usergames.userID = users.userID\n" +
-                        "WHERE username = ? and gameID = ?";
+                "WHERE username = ? and gameID = ?";
         try (PreparedStatement preparedStatement = conn.getConn().prepareStatement(sql)) {
             preparedStatement.setString(1, username);
             preparedStatement.setInt(2, gameID);
@@ -114,7 +110,6 @@ public class GameDAO {
         return false;
     }
 
-    //Buy game
     public void buyGame(Integer accountID, Integer gameID, Double gamePrice) {
         String sql = "INSERT INTO usergames(userID, gameID) VALUES(?, ?)";
         String sqlUpdateBalance = "UPDATE users SET balance = balance - ? WHERE userID = ?";
@@ -132,7 +127,6 @@ public class GameDAO {
         }
     }
 
-    //Get owned games by account id
     public ArrayList<Game> getOwnedGames(Integer accountID) {
         ArrayList<Game> ownedGamesList = new ArrayList<>();
         String sql = "SELECT games.*\n" +
@@ -157,7 +151,7 @@ public class GameDAO {
         }
         return ownedGamesList;
     }
-    //Get searched owned games by account id, name, genre
+
     public ArrayList<Game> getSearchedOwnedGames(Integer accountID, String name, String genre) {
         ArrayList<Game> ownedGamesList = new ArrayList<>();
         String sql = "SELECT games.*\n" +
@@ -185,7 +179,6 @@ public class GameDAO {
         return ownedGamesList;
     }
 
-    //Update game info
     public void updateGame(Game game) {
         String sql = "UPDATE games SET price = ?, name = ?, description = ?, genre = ?, bannerURL = ? WHERE gameID = ?";
         try (PreparedStatement preparedStatement = conn.getConn().prepareStatement(sql)) {
@@ -200,17 +193,7 @@ public class GameDAO {
             e.printStackTrace();
         }
     }
-    //Copy image to src/icon/game of this project
-    public void copyImageToGameIconFolder(String path) {
-        String sql = "UPDATE games SET bannerURL = ? WHERE gameID = ?";
-        try (PreparedStatement preparedStatement = conn.getConn().prepareStatement(sql)) {
-            preparedStatement.setString(1, path);
-            preparedStatement.setInt(2, 1);
-            preparedStatement.executeUpdate();
-        } catch (Exception e) {
-            e.printStackTrace();
-        }
-    }
+
     public void removeGame(Game game) {
         String sql = "DELETE FROM games WHERE gameID = ?";
         try (PreparedStatement preparedStatement = conn.getConn().prepareStatement(sql)) {
@@ -220,7 +203,7 @@ public class GameDAO {
             e.printStackTrace();
         }
     }
-    //Add game to database
+
     public void addGame(Game game) {
         String sql = "INSERT INTO games(price, name, description, genre, bannerURL) VALUES(?, ?, ?, ?, ?)";
         try (PreparedStatement preparedStatement = conn.getConn().prepareStatement(sql)) {

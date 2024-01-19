@@ -11,6 +11,7 @@ public class ImageHandler {
             removeImage(currentBannerURL);
         return copyImage(sourceBannerURL);
     }
+
     public String copyImage(String sourceBannerURL) {
         String projectBannerDir = "src/icon/game";
         try {
@@ -23,6 +24,7 @@ public class ImageHandler {
         }
         return null;
     }
+
     public void removeImage(String imageURL) {
         try {
             Path removePath = Paths.get(imageURL);

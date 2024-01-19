@@ -16,18 +16,20 @@ public class aboutMenu extends JFrame {
     private JLabel classes;
     private JLabel classInfo;
     private JButton exitButton;
+
     public aboutMenu() {
         this.initFrame();
         exitButton.addActionListener(e -> dispose());
     }
+
+    public static void main(String[] args) {
+        new aboutMenu().setVisible(true);
+    }
+
     public void initFrame() {
         this.setContentPane(mainPanel);
         this.setSize(500, 400);
         this.setLocationRelativeTo(null);
         this.setUndecorated(true);
-    }
-
-    public static void main(String[] args) {
-        new aboutMenu().setVisible(true);
     }
 }

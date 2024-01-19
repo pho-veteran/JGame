@@ -11,6 +11,9 @@ import java.awt.event.ActionEvent;
 import java.awt.event.ActionListener;
 
 public class userDashboard extends JFrame {
+    private final Account account;
+    private final ImageIcon imageIcon = new ImageIcon(new ImageIcon("src/icon/logo.png").getImage().getScaledInstance(220, 220, Image.SCALE_SMOOTH));
+    private final CardLayout cardLayout = new CardLayout();
     private JPanel mainPanel;
     private JButton storeNavigator;
     private JButton libraryNavigator;
@@ -30,10 +33,8 @@ public class userDashboard extends JFrame {
     private JButton about;
     private JButton changePassword;
     private Border currentBorder;
-    private Account account;
-    private ImageIcon imageIcon = new ImageIcon(new ImageIcon("src/icon/logo.png").getImage().getScaledInstance(220, 220, Image.SCALE_SMOOTH));
-    private CardLayout cardLayout = new CardLayout();
     private JPanel mainContentPanel;
+
     public userDashboard(Account account) {
         this.account = account;
         this.initFrame();
@@ -63,6 +64,7 @@ public class userDashboard extends JFrame {
             });
         });
     }
+
     public void initListeners() {
         storeNavigator.addActionListener(new ActionListener() {
             @Override
@@ -103,6 +105,7 @@ public class userDashboard extends JFrame {
             }
         });
     }
+
     public void initAccountInfomation() {
         AccountService accountService = new AccountService();
 
@@ -138,12 +141,10 @@ public class userDashboard extends JFrame {
         this.setUndecorated(true);
         logoLabel.setIcon(imageIcon);
 
-        //Get current Border and Margin settings
         currentBorder = storeNavigator.getBorder();
         storeNavigator.setBorder(BorderFactory.createMatteBorder(0, 5, 0, 0, Color.decode("#0EB194")));
         storeNavigator.setBorderPainted(true);
 
-        //Init mainContentPanel cardLayout
         mainContentPanel = new JPanel();
         mainContentPanel.setLayout(cardLayout);
         libraryPanel libPanel = new libraryPanel(account);

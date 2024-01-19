@@ -7,7 +7,8 @@ import java.sql.ResultSet;
 import java.sql.SQLException;
 
 public class AccountDAO {
-    private DBConn dbConn = new DBConn();
+    private final DBConn dbConn = new DBConn();
+
     public Integer registerAccount(String username, String password) {
         String sqlCheckExistence = "SELECT COUNT(*) FROM accounts WHERE username = ?";
         String sqlInsertAccount = "INSERT INTO accounts(username, password, accessRight) VALUES(?, ?, 'User')";
@@ -18,7 +19,6 @@ public class AccountDAO {
              PreparedStatement insertAccountStatement = dbConn.getConn().prepareStatement(sqlInsertAccount);
              PreparedStatement insertUserStatement = dbConn.getConn().prepareStatement(sqlInsertUser)) {
 
-            // Check if the username already exists
             checkExistenceStatement.setString(1, username);
             ResultSet resultSet = checkExistenceStatement.executeQuery();
 
@@ -58,6 +58,7 @@ public class AccountDAO {
             return null;
         }
     }
+
     public String getPassword(Integer accountID) {
         String sql = "SELECT password FROM accounts WHERE accountID = ?";
         try (PreparedStatement preparedStatement = dbConn.getConn().prepareStatement(sql)) {
@@ -73,6 +74,7 @@ public class AccountDAO {
             return null;
         }
     }
+
     public void changePassword(String newPassword, Integer accountID) {
         String sql = "UPDATE accounts SET password = ? WHERE accountID = ?";
         try (PreparedStatement preparedStatement = dbConn.getConn().prepareStatement(sql)) {

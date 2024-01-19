@@ -5,7 +5,7 @@ import BUS.GameService;
 import DTO.Account;
 import DTO.Game;
 import GUI.CustomComponents.ScrollPaneWin11;
-import GUI.CustomComponents.customImageTable;
+import GUI.CustomComponents.storePanelTable;
 
 import javax.swing.*;
 import java.awt.*;
@@ -13,6 +13,9 @@ import java.awt.event.ActionListener;
 import java.util.ArrayList;
 
 public class gameStorePanel extends JPanel {
+    private final Account account;
+    private final userDashboard parentFrame;
+    private final libraryPanel controlLibraryPanel;
     private JPanel mainPanel;
     private JPanel placeHolderPanel_1;
     private JPanel placeHolderPanel_2;
@@ -53,12 +56,10 @@ public class gameStorePanel extends JPanel {
     private JLabel gameInfo_Name;
     private JLabel gameInfo_Genre;
     private JButton gameInfo_Price_Button;
-    private Account account;
     private ArrayList<Game> gameList;
     private ArrayList<Game> searchedGameList;
     private Boolean isAnyRowSelected = false;
-    private userDashboard parentFrame;
-    private libraryPanel controlLibraryPanel;
+
     public gameStorePanel(Account account, userDashboard parentFrame, libraryPanel controlLibraryPanel) {
         this.initPanel();
         this.account = account;
@@ -89,7 +90,7 @@ public class gameStorePanel extends JPanel {
             Object[][] searchedGameListObject = getSearchedGameList(searchBox.getText(),
                     byGenreComboBox.getSelectedItem().toString());
             String[] gameColumnNames = {"Image", "Name"};
-            gameTable = new customImageTable(gameColumnNames, searchedGameListObject);
+            gameTable = new storePanelTable(gameColumnNames, searchedGameListObject);
             gameTable.getSelectionModel().addListSelectionListener(ex -> {
                 if (!ex.getValueIsAdjusting() && gameTable.getSelectedRow() != -1) {
                     isAnyRowSelected = true;
@@ -118,11 +119,12 @@ public class gameStorePanel extends JPanel {
         searchBox.setBorder(BorderFactory.createLineBorder(Color.GRAY, 2));
         byGenreComboBox.setBorder(BorderFactory.createLineBorder(Color.GRAY, 1));
     }
+
     private void createUIComponents() {
         fetchGameList();
         Object[][] gameData = getGameList();
         String[] gameColumnNames = {"Image", "Name"};
-        gameTable = new customImageTable(gameColumnNames, gameData);
+        gameTable = new storePanelTable(gameColumnNames, gameData);
         gameTable.getSelectionModel().addListSelectionListener(e -> {
             if (!e.getValueIsAdjusting() && gameTable.getSelectedRow() != -1) {
                 isAnyRowSelected = true;
@@ -141,9 +143,11 @@ public class gameStorePanel extends JPanel {
         gameScrollPane.setColumnHeader(null);
         gameScrollPane.setBackground(Color.decode("#1A2034"));
     }
+
     public void fetchGameList() {
         gameList = new GameService().getAllGamesList();
     }
+
     public void loadGameGenreComboBox() {
         byGenreComboBox.addItem("");
         ArrayList<String> gameGenreList = new GameService().getGameGenreList();
@@ -152,6 +156,7 @@ public class gameStorePanel extends JPanel {
         }
         byGenreComboBox.setSelectedIndex(0);
     }
+
     public void updateTop5Game() {
         ArrayList<Game> top5GameList = new GameService().getTop5GamesList();
         gameLogo_1.setIcon(new ImageIcon(top5GameList.get(0).getBannerURL()));
@@ -165,12 +170,14 @@ public class gameStorePanel extends JPanel {
         gameDesc_4.setText(top5GameList.get(3).getName());
         gameDesc_5.setText(top5GameList.get(4).getName());
     }
+
     public void removeGameInfo_Price_ButtonListener() {
         ActionListener[] actionListeners = gameInfo_Price_Button.getActionListeners();
         for (ActionListener al : actionListeners) {
             gameInfo_Price_Button.removeActionListener(al);
         }
     }
+
     private void gameInfoDisplay(Game game) {
         removeGameInfo_Price_ButtonListener();
         if (new AccountService().checkGameOwned(account.getUsername(), game.getGameId())) {
@@ -207,21 +214,23 @@ public class gameStorePanel extends JPanel {
         gameInfo_Genre.setText("Genre: " + game.getGenre());
         showGameInfoPanel();
     }
+
     public void showGameInfoPanel() {
         gameInformation.setVisible(true);
         gameInfoHeader.setVisible(true);
     }
+
     public void hideGameInfoPanel() {
         gameInformation.setVisible(false);
         gameInfoHeader.setVisible(false);
     }
+
     public Object[][] getGameList() {
         Object[][] gameData = new Object[gameList.size()][2];
 
         for (int i = 0; i < gameList.size(); i++) {
             gameData[i][0] = new ImageIcon(gameList.get(i).getBannerURL());
 
-            // HTML formatting with bold game name and larger font size for the name
             String multiLineText = "<html></b><br/><b style='font-size: larger;'>" + gameList.get(i).getName() +
                     "</b><br/> </b><br/>" + gameList.get(i).getDescription() + "</html>";
 
@@ -230,12 +239,12 @@ public class gameStorePanel extends JPanel {
 
         return gameData;
     }
+
     public Object[][] getSearchedGameList(String name, String genre) {
         searchedGameList = new GameService().searchGame(name, genre);
         Object[][] gameData = new Object[searchedGameList.size()][2];
         for (int i = 0; i < searchedGameList.size(); i++) {
             gameData[i][0] = new ImageIcon(searchedGameList.get(i).getBannerURL());
-
 
             String multiLineText = "<html></b><br/><b style='font-size: larger;'>" + searchedGameList.get(i).getName() +
                     "</b><br/> </b><br/>" + searchedGameList.get(i).getDescription() + "</html>";

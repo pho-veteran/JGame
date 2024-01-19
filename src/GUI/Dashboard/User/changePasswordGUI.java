@@ -7,6 +7,7 @@ import javax.swing.*;
 import java.awt.*;
 
 public class changePasswordGUI extends JFrame {
+    private final Account account;
     private JPanel mainPanel;
     private JPanel inputPanel;
     private JTextField currentPasswordField;
@@ -19,7 +20,7 @@ public class changePasswordGUI extends JFrame {
     private JButton dupe;
     private JButton exitButton;
     private JLabel changeYourPasswordLabel;
-    private Account account;
+
     public changePasswordGUI(Account account) {
         this.initFrame();
         this.account = account;
@@ -39,6 +40,7 @@ public class changePasswordGUI extends JFrame {
             }
         });
     }
+
     public void initFrame() {
         this.setContentPane(mainPanel);
         this.setDefaultCloseOperation(JFrame.DISPOSE_ON_CLOSE);

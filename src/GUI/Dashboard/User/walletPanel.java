@@ -7,7 +7,8 @@ import javax.swing.*;
 import java.awt.*;
 
 public class walletPanel extends JPanel {
-    private Account account;
+    private final Account account;
+    private final userDashboard controlDashboard;
     private JPanel mainPanel;
     private JPanel jPrimePanel;
     private JLabel jPrimeHeader;
@@ -32,18 +33,20 @@ public class walletPanel extends JPanel {
     private JLabel addFund_200Label;
     private JButton addFund_200Button;
     private JLabel thanksLabel;
-    private userDashboard controlDashboard;
+
     public walletPanel(Account account, userDashboard controlDashboard) {
         this.account = account;
         this.initPanel();
         this.controlDashboard = controlDashboard;
     }
+
     public void initPanel() {
         this.setLayout(new BorderLayout());
         this.add(mainPanel, BorderLayout.CENTER);
         this.initPrimePanel();
         this.initAddFundButton();
     }
+
     public void initPrimePanel() {
         if (new AccountService().getPrimeStatus(account.getUsername()) == 0) {
             jPrime_status_header.setText("You don't have your JPrime membership yet!");
@@ -62,6 +65,7 @@ public class walletPanel extends JPanel {
             setjPrimePurchase();
         });
     }
+
     public void setjPrimePurchase() {
         jPrime_status_header.setText("You have purchased a JPrime membership!");
         jPrime_buyButton.setVisible(false);
@@ -71,6 +75,7 @@ public class walletPanel extends JPanel {
                 "of games available in our store!" +
                 "</p></html>");
     }
+
     public void initAddFundButton() {
         addFund_20Button.addActionListener(e -> {
             new AccountService().addFund(account.getUsername(), 20);

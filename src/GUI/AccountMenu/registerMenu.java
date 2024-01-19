@@ -9,6 +9,7 @@ import java.awt.event.ActionListener;
 import java.sql.SQLException;
 
 public class registerMenu extends JFrame {
+    private final ImageIcon imageIcon = new ImageIcon(new ImageIcon("src/icon/account/account.png").getImage().getScaledInstance(64, 64, Image.SCALE_SMOOTH));
     private JLabel logo;
     private JPanel mainPanel;
     private JPanel inputPanel;
@@ -23,7 +24,7 @@ public class registerMenu extends JFrame {
     private JLabel confirmPassword;
     private JButton exitButton;
     private JButton dupe;
-    private ImageIcon imageIcon = new ImageIcon(new ImageIcon("src/icon/account/account.png").getImage().getScaledInstance(64, 64, Image.SCALE_SMOOTH));
+
     public registerMenu() {
         this.initFrame();
         navigateToLoginButton.addActionListener(new ActionListener() {
@@ -60,9 +61,9 @@ public class registerMenu extends JFrame {
                         dispose();
                     } else if (status == -1)
                         JOptionPane.showMessageDialog(null, "Account exist!", "Error", JOptionPane.ERROR_MESSAGE);
-                    else JOptionPane.showMessageDialog(null, "Registration failed!", "Error", JOptionPane.ERROR_MESSAGE);
-                }
-                else
+                    else
+                        JOptionPane.showMessageDialog(null, "Registration failed!", "Error", JOptionPane.ERROR_MESSAGE);
+                } else
                     JOptionPane.showMessageDialog(null, "Passwords are not the same or username is empty!", "Error", JOptionPane.ERROR_MESSAGE);
             }
         });
@@ -73,6 +74,7 @@ public class registerMenu extends JFrame {
             }
         });
     }
+
     public void initFrame() {
         this.setTitle("Sign Up");
         this.setContentPane(mainPanel);

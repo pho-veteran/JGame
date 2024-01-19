@@ -10,6 +10,7 @@ import java.awt.event.ActionEvent;
 import java.awt.event.ActionListener;
 
 public class loginMenu extends JFrame {
+    private final ImageIcon imageIcon = new ImageIcon(new ImageIcon("src/icon/account/account.png").getImage().getScaledInstance(64, 64, Image.SCALE_SMOOTH));
     private JPanel inputPanel;
     private JTextField usernameField;
     private JButton loginButton;
@@ -22,7 +23,7 @@ public class loginMenu extends JFrame {
     private JLabel logo;
     private JButton exitButton;
     private JButton dupe;
-    private ImageIcon imageIcon = new ImageIcon(new ImageIcon("src/icon/account/account.png").getImage().getScaledInstance(64, 64, Image.SCALE_SMOOTH));
+
     public loginMenu() {
         this.initFrame();
         navigateSignupButton.addActionListener(new ActionListener() {
@@ -39,13 +40,11 @@ public class loginMenu extends JFrame {
         loginButton.addActionListener(new ActionListener() {
             @Override
             public void actionPerformed(ActionEvent e) {
-                //Check if the fields are empty
                 if (usernameField.getText().equals("") || passwordField.getText().equals("")) {
                     JOptionPane.showMessageDialog(null, "Please fill in all the fields!", "Error", JOptionPane.ERROR_MESSAGE);
                     return;
                 }
 
-                //Check if the username exists
                 Account account = new AccountService().login(usernameField.getText(), passwordField.getText());
                 if (account == null) {
                     JOptionPane.showMessageDialog(null, "Wrong username or password!"
@@ -53,14 +52,12 @@ public class loginMenu extends JFrame {
                     return;
                 }
 
-                //Check if the account is a user or an admin
                 String accessRight = account.getAccessRight();
                 if (accessRight.equals("Admin")) {
                     new GUI.Dashboard.Admin.adminDashboard().setVisible(true);
                     JOptionPane.showMessageDialog(null, "Welcome back, admin!", "Success", JOptionPane.INFORMATION_MESSAGE);
                     dispose();
-                }
-                else {
+                } else {
                     SwingUtilities.invokeLater(new Runnable() {
                         public void run() {
                             new userDashboard(account).setVisible(true);
@@ -71,7 +68,6 @@ public class loginMenu extends JFrame {
                 }
             }
         });
-        //Exit button
         exitButton.addActionListener(new ActionListener() {
             @Override
             public void actionPerformed(ActionEvent e) {
@@ -79,6 +75,7 @@ public class loginMenu extends JFrame {
             }
         });
     }
+
     public void initFrame() {
         this.setTitle("Login");
         this.setContentPane(mainPanel);
