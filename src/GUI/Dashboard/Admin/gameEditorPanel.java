@@ -112,8 +112,7 @@ public class gameEditorPanel extends JPanel {
         genreField.setText("");
         priceField.setText("");
         infoEditorPanel.setVisible(true);
-        selectedGame = new Game();
-        selectedGame.setBannerURL("src/icon/game/default.png");
+        changedBannerURL = "src/icon/game/default.png";
         gameLogo.setIcon(new ImageIcon("src/icon/game/default.png"));
     }
 
@@ -186,10 +185,10 @@ public class gameEditorPanel extends JPanel {
     public void executeAddNewGame() {
         if (checkFieldConstraints()) {
             String projectBannerURL = new ImageHandler().copyImage(changedBannerURL);
-            selectedGame.setBannerURL(projectBannerURL);
+
             new GameService().addGame(new Game(0, Double.parseDouble(priceField.getText()),
                     gameNameField.getText(), descField.getText(), genreField.getText(),
-                    selectedGame.getBannerURL()));
+                    projectBannerURL));
         }
     }
 

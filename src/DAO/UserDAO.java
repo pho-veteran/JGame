@@ -13,7 +13,6 @@ public class UserDAO {
             preparedStatement.setString(1, username);
             ResultSet rs = preparedStatement.executeQuery();
             if (rs.next()) {
-                System.out.println("Balance: " + rs.getDouble("balance"));
                 return rs.getDouble("balance");
             }
         } catch (SQLException e) {
@@ -28,7 +27,6 @@ public class UserDAO {
             preparedStatement.setString(1, username);
             ResultSet rs = preparedStatement.executeQuery();
             if (rs.next()) {
-                System.out.println("Prime status: " + rs.getInt("primeStatus"));
                 return rs.getInt("primeStatus");
             }
         } catch (SQLException e) {

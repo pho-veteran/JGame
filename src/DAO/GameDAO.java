@@ -195,7 +195,14 @@ public class GameDAO {
     }
 
     public void removeGame(Game game) {
-        String sql = "DELETE FROM games WHERE gameID = ?";
+        String sql = "DELETE FROM usergames WHERE gameID = ?";
+        try (PreparedStatement preparedStatement = conn.getConn().prepareStatement(sql)) {
+            preparedStatement.setInt(1, game.getGameId());
+            preparedStatement.executeUpdate();
+        } catch (Exception e) {
+            e.printStackTrace();
+        }
+        sql = "DELETE FROM games WHERE gameID = ?";
         try (PreparedStatement preparedStatement = conn.getConn().prepareStatement(sql)) {
             preparedStatement.setInt(1, game.getGameId());
             preparedStatement.executeUpdate();

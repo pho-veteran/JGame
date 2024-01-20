@@ -3,7 +3,7 @@
   <grid id="27dc6" binding="mainPanel" layout-manager="GridLayoutManager" row-count="1" column-count="3" same-size-horizontally="false" same-size-vertically="false" hgap="0" vgap="0">
     <margin top="0" left="0" bottom="0" right="0"/>
     <constraints>
-      <xy x="20" y="20" width="1192" height="649"/>
+      <xy x="20" y="20" width="1192" height="669"/>
     </constraints>
     <properties>
       <background color="-1250068"/>
@@ -42,7 +42,7 @@
               <component id="e9efe" class="javax.swing.JTextField" binding="gameNameField">
                 <constraints>
                   <grid row="0" column="1" row-span="1" col-span="1" vsize-policy="0" hsize-policy="0" anchor="8" fill="0" indent="0" use-parent-layout="false">
-                    <preferred-size width="320" height="30"/>
+                    <preferred-size width="320" height="35"/>
                   </grid>
                 </constraints>
                 <properties>
@@ -63,7 +63,7 @@
               <component id="11d71" class="javax.swing.JTextField" binding="genreField">
                 <constraints>
                   <grid row="1" column="1" row-span="1" col-span="1" vsize-policy="0" hsize-policy="0" anchor="8" fill="0" indent="0" use-parent-layout="false">
-                    <preferred-size width="320" height="30"/>
+                    <preferred-size width="320" height="35"/>
                   </grid>
                 </constraints>
                 <properties>
@@ -83,8 +83,8 @@
               <scrollpane id="c3569" binding="descScrollPane" custom-create="true">
                 <constraints>
                   <grid row="3" column="1" row-span="1" col-span="1" vsize-policy="0" hsize-policy="7" anchor="8" fill="2" indent="0" use-parent-layout="false">
-                    <minimum-size width="320" height="140"/>
-                    <maximum-size width="320" height="140"/>
+                    <minimum-size width="320" height="150"/>
+                    <maximum-size width="320" height="150"/>
                   </grid>
                 </constraints>
                 <properties/>
@@ -123,7 +123,7 @@
                   <component id="bdeb1" class="javax.swing.JTextField" binding="priceField">
                     <constraints>
                       <grid row="0" column="0" row-span="1" col-span="1" vsize-policy="0" hsize-policy="0" anchor="8" fill="0" indent="0" use-parent-layout="false">
-                        <preferred-size width="270" height="30"/>
+                        <preferred-size width="270" height="35"/>
                       </grid>
                     </constraints>
                     <properties>
@@ -148,7 +148,7 @@
           <vspacer id="fa0ce">
             <constraints>
               <grid row="0" column="0" row-span="1" col-span="1" vsize-policy="0" hsize-policy="1" anchor="0" fill="0" indent="0" use-parent-layout="false">
-                <minimum-size width="-1" height="30"/>
+                <minimum-size width="-1" height="40"/>
               </grid>
             </constraints>
           </vspacer>
@@ -175,7 +175,7 @@
                   <grid row="0" column="0" row-span="1" col-span="2" vsize-policy="0" hsize-policy="0" anchor="0" fill="0" indent="0" use-parent-layout="false"/>
                 </constraints>
                 <properties>
-                  <icon value="icon/game/dont_starve.png"/>
+                  <icon value="icon/game/default.png"/>
                   <text value=""/>
                 </properties>
               </component>

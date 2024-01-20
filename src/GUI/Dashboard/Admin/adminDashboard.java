@@ -14,10 +14,8 @@ public class adminDashboard extends JFrame {
     private JButton about;
     private JButton changePassword;
     private JPanel navigationPanel;
-    private JButton accountEditor;
     private JButton gameEditor;
     private JPanel contentPanel;
-    private JPanel accountPanel;
     private JPanel gamePanel;
     private CardLayout cardLayout;
 
@@ -29,14 +27,13 @@ public class adminDashboard extends JFrame {
         this.setContentPane(mainPanel);
         this.setDefaultCloseOperation(JFrame.EXIT_ON_CLOSE);
         this.setUndecorated(true);
-        this.setSize(1100, 800);
+        this.setSize(1100, 850);
         this.setLocationRelativeTo(null);
         this.initComponents();
         this.initListeners();
     }
 
     public void initComponents() {
-        accountEditor.setIcon(accountEditorImage);
         gameEditor.setIcon(gameEditorImage);
     }
 
@@ -48,14 +45,8 @@ public class adminDashboard extends JFrame {
             new aboutMenu().setVisible(true);
         });
 
-        accountEditor.addActionListener(e -> {
-            accountEditor.setBackground(Color.decode("#303952"));
-            gameEditor.setBackground(Color.decode("#596275"));
-            cardLayout.show(contentPanel, "accountPanel");
-        });
         gameEditor.addActionListener(e -> {
             gameEditor.setBackground(Color.decode("#303952"));
-            accountEditor.setBackground(Color.decode("#596275"));
             cardLayout.show(contentPanel, "gamePanel");
         });
     }
@@ -68,10 +59,8 @@ public class adminDashboard extends JFrame {
         contentPanel.setLayout(cardLayout);
 
         gamePanel = new gameEditorPanel();
-        accountPanel = new accountEditorPanel();
 
         contentPanel.add(gamePanel, "gamePanel");
-        contentPanel.add(accountPanel, "accountPanel");
         cardLayout.show(contentPanel, "gamePanel");
     }
 }
