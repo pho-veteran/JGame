@@ -42,7 +42,6 @@ public class UserDAO {
             preparedStatement.setString(1, username);
             ResultSet rs = preparedStatement.executeQuery();
             if (rs.next()) {
-                System.out.println("User ID: " + rs.getInt("userID"));
                 return rs.getInt("userID");
             }
         } catch (SQLException e) {

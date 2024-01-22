@@ -15,6 +15,10 @@ import java.awt.geom.RoundRectangle2D;
 import java.util.ArrayList;
 import java.util.List;
 
+/***
+ * Credit: Raven
+ * GitHub: [https://github.com/DJ-Raven/windows11-jscrollbar]
+ ***/
 public class ScrollBarWin11UI extends BasicScrollBarUI {
 
     private final int scrollSize = 14;

@@ -58,11 +58,7 @@ public class loginMenu extends JFrame {
                     JOptionPane.showMessageDialog(null, "Welcome back, admin!", "Success", JOptionPane.INFORMATION_MESSAGE);
                     dispose();
                 } else {
-                    SwingUtilities.invokeLater(new Runnable() {
-                        public void run() {
-                            new userDashboard(account).setVisible(true);
-                        }
-                    });
+                    new userDashboard(account).setVisible(true);
                     JOptionPane.showMessageDialog(null, "Welcome back, " + usernameField.getText() + "!", "Success", JOptionPane.INFORMATION_MESSAGE, imageIcon);
                     dispose();
                 }

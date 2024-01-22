@@ -4,6 +4,10 @@ import javax.swing.*;
 import java.awt.*;
 import java.util.Objects;
 
+/***
+ * Credit: Raven
+ * GitHub: [https://github.com/DJ-Raven/windows11-jscrollbar]
+ ***/
 public class ScrollPaneWin11 extends JScrollPane {
 
     public ScrollPaneWin11() {
