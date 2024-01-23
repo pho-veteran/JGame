@@ -19,6 +19,7 @@ To work on this project using IntelliJ IDEA:
 
     - Use `git clone https://github.com/pho-veteran/JGame.git` to clone the repository.
     - The `Database` folder contains the MySQL Query file, which can be imported into your MySQL database.
+    - Goto `src/DAO/DBConn` to update your database account credential.
 
 2. **Open IntelliJ IDEA:**
 
