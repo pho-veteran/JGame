@@ -7,8 +7,6 @@ import java.nio.file.StandardCopyOption;
 
 public class ImageHandler {
     public String setBannerURL(String sourceBannerURL, String currentBannerURL) {
-        if (!currentBannerURL.equals("src\\icon\\game\\default.png"))
-            removeImage(currentBannerURL);
         return copyImage(sourceBannerURL);
     }
 
@@ -23,14 +21,5 @@ public class ImageHandler {
             e.printStackTrace();
         }
         return null;
-    }
-
-    public void removeImage(String imageURL) {
-        try {
-            Path removePath = Paths.get(imageURL);
-            Files.delete(removePath);
-        } catch (Exception e) {
-            e.printStackTrace();
-        }
     }
 }
